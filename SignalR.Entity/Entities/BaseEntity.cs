@@ -1,4 +1,4 @@
-namespace SignalRAPI.Dal.Entities;
+namespace SignalR.Entity.Entities;
 
 public class BaseEntity
 {

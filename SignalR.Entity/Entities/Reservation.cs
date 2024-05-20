@@ -1,6 +1,4 @@
-using System.Runtime.InteropServices.JavaScript;
-
-namespace SignalRAPI.Dal.Entities;
+namespace SignalR.Entity.Entities;
 
 public class Reservation : BaseEntity
 {

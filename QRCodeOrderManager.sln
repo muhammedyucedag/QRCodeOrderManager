@@ -6,6 +6,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalRWebUI", "SignalRWebU
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalR.Entity", "SignalR.Entity\SignalR.Entity.csproj", "{3C131F61-FD79-41BD-BCE6-C8BA42B48F17}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalR.DataAccessLayer", "SignalR.DataAccessLayer\SignalR.DataAccessLayer.csproj", "{088488F4-94D0-40B2-AA8B-CE2FDDEF8798}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalR.BusinessLayer", "SignalR.BusinessLayer\SignalR.BusinessLayer.csproj", "{A39C57CA-5BFF-4F7E-BDD9-9B52ECE565AD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalRDtoLayer", "SignalRDtoLayer\SignalRDtoLayer.csproj", "{4815F8F4-80B4-42CC-AB0B-C1ABD76E6820}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +30,17 @@ Global
 		{3C131F61-FD79-41BD-BCE6-C8BA42B48F17}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3C131F61-FD79-41BD-BCE6-C8BA42B48F17}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3C131F61-FD79-41BD-BCE6-C8BA42B48F17}.Release|Any CPU.Build.0 = Release|Any CPU
+		{088488F4-94D0-40B2-AA8B-CE2FDDEF8798}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{088488F4-94D0-40B2-AA8B-CE2FDDEF8798}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{088488F4-94D0-40B2-AA8B-CE2FDDEF8798}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{088488F4-94D0-40B2-AA8B-CE2FDDEF8798}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A39C57CA-5BFF-4F7E-BDD9-9B52ECE565AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A39C57CA-5BFF-4F7E-BDD9-9B52ECE565AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A39C57CA-5BFF-4F7E-BDD9-9B52ECE565AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A39C57CA-5BFF-4F7E-BDD9-9B52ECE565AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4815F8F4-80B4-42CC-AB0B-C1ABD76E6820}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4815F8F4-80B4-42CC-AB0B-C1ABD76E6820}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4815F8F4-80B4-42CC-AB0B-C1ABD76E6820}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4815F8F4-80B4-42CC-AB0B-C1ABD76E6820}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

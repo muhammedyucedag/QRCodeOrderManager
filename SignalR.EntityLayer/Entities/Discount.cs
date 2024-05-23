@@ -1,6 +1,6 @@
 namespace SignalR.Entity.Entities;
 
-public class Discount
+public class Discount : BaseEntity
 {
     public string Title { get; set; }
     public string Amount { get; set; }

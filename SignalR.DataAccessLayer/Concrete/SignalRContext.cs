@@ -5,12 +5,13 @@ namespace SignalR.DataAccessLayer.Concrete;
 
 public class SignalRContext : DbContext
 {
+    public SignalRContext(DbContextOptions<SignalRContext> options) : base(options) { }
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=SignalRApi;Username=username;Password=password");
         base.OnConfiguring(optionsBuilder);
     }
-    
+
     public DbSet<About> Abouts { get; set; }
     public DbSet<Category> Categories { get; set; }
     public DbSet<Contact> Contacts { get; set; }

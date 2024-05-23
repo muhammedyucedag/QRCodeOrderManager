@@ -7,7 +7,7 @@ public class SignalRContext : DbContext
 {
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=SignalRApi;");
+        optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=SignalRApi;Username=username;Password=password");
         base.OnConfiguring(optionsBuilder);
     }
     

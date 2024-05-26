@@ -5,10 +5,21 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
       <UserSecretsId>ad24ff10-5908-4fbc-8ff8-0435898f5523</UserSecretsId>
+      <RootNamespace>SignalR.DataAccessLayer</RootNamespace>
   </PropertyGroup>
 
     <ItemGroup>
       <Folder Include="Migrations\" />
+      <Folder Include="Repository\About\" />
+      <Folder Include="Repository\Category\" />
+      <Folder Include="Repository\Contact\" />
+      <Folder Include="Repository\Discount\" />
+      <Folder Include="Repository\Product\" />
+      <Folder Include="Repository\Reservation\" />
+      <Folder Include="Repository\SocialMedia\" />
+      <Folder Include="Repository\Sorter\" />
+      <Folder Include="Repository\Testimonial\" />
+      <Folder Include="Service\" />
     </ItemGroup>
 
     <ItemGroup>
@@ -25,7 +36,9 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\SignalR.EntityLayer\SignalR.EntityLayer.csproj" />
+      <ProjectReference Include="..\QRCodeOrderManager.Application\QRCodeOrderManager.Application.csproj" />
+      <ProjectReference Include="..\QRCodeOrderManager.Domain\QRCodeOrderManager.Domain.csproj" />
+      <ProjectReference Include="..\QRCodeOrderManager.Infrastructure\QRCodeOrderManager.Infrastructure.csproj" />
     </ItemGroup>
 
     <ItemGroup>

@@ -5,6 +5,7 @@
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
       <UserSecretsId>b96a1481-9127-4f6b-9998-617a397ff686</UserSecretsId>
+      <RootNamespace>SignalRAPI</RootNamespace>
   </PropertyGroup>
 
     <ItemGroup>
@@ -20,7 +21,8 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\SignalR.BusinessLayer\SignalR.BusinessLayer.csproj" />
+      <ProjectReference Include="..\QRCodeOrderManager.Application\QRCodeOrderManager.Application.csproj" />
+      <ProjectReference Include="..\QRCodeOrderManager.Persistance\QRCodeOrderManager.Persistance.csproj" />
     </ItemGroup>
 
 </Project>

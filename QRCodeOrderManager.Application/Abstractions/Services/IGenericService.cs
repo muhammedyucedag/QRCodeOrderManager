@@ -1,4 +1,4 @@
-namespace SignalR.BusinessLayer.Abstract;
+namespace SignalR.BusinessLayer.Abstractions.Services;
 
 public interface IGenericService<T> where T : class 
 {

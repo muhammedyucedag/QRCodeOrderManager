@@ -4,15 +4,11 @@
         <TargetFramework>net8.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
-        <UserSecretsId>da57abe5-5991-4502-9475-42223a8bc95c</UserSecretsId>
+        <RootNamespace>SignalR.Entity</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\SignalR.DataAccessLayer\SignalR.DataAccessLayer.csproj" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Folder Include="Concrete\" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.5" />
     </ItemGroup>
 
 </Project>

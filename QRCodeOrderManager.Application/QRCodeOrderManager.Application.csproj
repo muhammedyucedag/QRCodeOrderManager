@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <UserSecretsId>da57abe5-5991-4502-9475-42223a8bc95c</UserSecretsId>
+        <RootNamespace>SignalR.BusinessLayer</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Folder Include="Concrete\" />
+      <Folder Include="Repository\About\" />
+      <Folder Include="Repository\Category\" />
+      <Folder Include="Repository\Contact\" />
+      <Folder Include="Repository\Discount\" />
+      <Folder Include="Repository\Product\" />
+      <Folder Include="Repository\Reservation\" />
+      <Folder Include="Repository\SocialMedia\" />
+      <Folder Include="Repository\Sorter\" />
+      <Folder Include="Repository\Testimonial\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\QRCodeOrderManager.Domain\QRCodeOrderManager.Domain.csproj" />
+    </ItemGroup>
+
+</Project>

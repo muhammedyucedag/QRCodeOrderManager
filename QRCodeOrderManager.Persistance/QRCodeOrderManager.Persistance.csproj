@@ -10,7 +10,6 @@
 
     <ItemGroup>
       <Folder Include="Migrations\" />
-      <Folder Include="Repository\About\" />
       <Folder Include="Repository\Category\" />
       <Folder Include="Repository\Contact\" />
       <Folder Include="Repository\Discount\" />

@@ -1,9 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
-using SignalR.BusinessLayer.Repository;
+using QRCodeOrderManager.Application.Repository;
+using QRCodeOrderManager.Domain.Entities;
 using SignalR.DataAccessLayer.Concrete;
-using SignalR.Entity.Entities;
-using SignalR.Entity.Repositories;
 
 namespace SignalR.DataAccessLayer.Repository;
 

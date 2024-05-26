@@ -1,7 +1,6 @@
-using SignalR.Entity.Entities;
-using SignalR.Entity.Repositories;
+using QRCodeOrderManager.Domain.Entities;
 
-namespace SignalR.BusinessLayer.Repository;
+namespace QRCodeOrderManager.Application.Repository;
 
 public interface IWriteRepository<T> : IRepository<T> where T : BaseEntity
 {

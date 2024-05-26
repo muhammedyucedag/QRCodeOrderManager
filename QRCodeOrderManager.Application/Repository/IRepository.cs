@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
-using SignalR.Entity.Entities;
+using QRCodeOrderManager.Domain.Entities;
 
-namespace SignalR.Entity.Repositories;
+namespace QRCodeOrderManager.Application.Repository;
 
 //IRepository<T> arayüzündeki DbSet<T> Table özelliği, belirli bir varlık tipi için veri tabanında
 //CRUD işlemlerini kolaylaştırmak amacıyla Entity Framework Core tarafından sağlanan veri kümesine erişim sağlar.

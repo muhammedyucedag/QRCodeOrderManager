@@ -1,8 +1,7 @@
 using System.Linq.Expressions;
-using SignalR.Entity.Entities;
-using SignalR.Entity.Repositories;
+using QRCodeOrderManager.Domain.Entities;
 
-namespace SignalR.BusinessLayer.Repository;
+namespace QRCodeOrderManager.Application.Repository;
 
 public interface IReadRepository<T> : IRepository<T> where T : BaseEntity
 {

@@ -1,4 +1,4 @@
-using SignalR.Entity.Entities;
+using QRCodeOrderManager.Domain.Entities;
 
 namespace SignalR.BusinessLayer.Abstractions.Services;
 

@@ -1,4 +1,4 @@
-namespace SignalR.Entity.Entities;
+namespace QRCodeOrderManager.Domain.Entities;
 
 public class Reservation : BaseEntity
 {

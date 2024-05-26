@@ -1,8 +1,9 @@
 using System.Linq.Expressions;
 using Microsoft.EntityFrameworkCore;
+using QRCodeOrderManager.Application.Repository;
+using QRCodeOrderManager.Domain.Entities;
 using SignalR.BusinessLayer.Repository;
 using SignalR.DataAccessLayer.Concrete;
-using SignalR.Entity.Entities;
 
 namespace SignalR.DataAccessLayer.Repository;
 

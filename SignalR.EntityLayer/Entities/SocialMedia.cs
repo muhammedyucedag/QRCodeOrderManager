@@ -1,6 +1,6 @@
 namespace SignalR.Entity.Entities;
 
-public class SocailMedia : BaseEntity
+public class SocialMedia : BaseEntity
 {
     public string Title { get; set; }
     public string Url { get; set; }

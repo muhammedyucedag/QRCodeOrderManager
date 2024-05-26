@@ -18,7 +18,7 @@ public class SignalRContext : DbContext
     public DbSet<Discount> Discounts { get; set; }
     public DbSet<Product> Products { get; set; }
     public DbSet<Reservation> Reservations { get; set; }
-    public DbSet<SocailMedia> SocailMedia { get; set; }
+    public DbSet<SocialMedia> SocialMedia { get; set; }
     public DbSet<Sorter> Sorters { get; set; }
     public DbSet<Testimonial> Testimonials { get; set; }
 }

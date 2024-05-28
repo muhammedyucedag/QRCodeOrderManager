@@ -10,14 +10,6 @@
 
     <ItemGroup>
       <Folder Include="Migrations\" />
-      <Folder Include="Repository\Category\" />
-      <Folder Include="Repository\Contact\" />
-      <Folder Include="Repository\Discount\" />
-      <Folder Include="Repository\Product\" />
-      <Folder Include="Repository\Reservation\" />
-      <Folder Include="Repository\SocialMedia\" />
-      <Folder Include="Repository\Sorter\" />
-      <Folder Include="Repository\Testimonial\" />
       <Folder Include="Service\" />
     </ItemGroup>
 

@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using SignalR.DataAccessLayer.Concrete;
+using QRCodeOrderManager.Persistance.Concrete;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,9 +10,9 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddDbContext<SignalRContext>(x =>
+builder.Services.AddDbContext<SignalRContext>(options =>
 {
-    x.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"));
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
 
 var app = builder.Build();

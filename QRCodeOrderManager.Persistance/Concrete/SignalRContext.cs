@@ -1,15 +1,17 @@
 using Microsoft.EntityFrameworkCore;
 using QRCodeOrderManager.Domain.Entities;
 
-namespace SignalR.DataAccessLayer.Concrete;
+namespace QRCodeOrderManager.Persistance.Concrete;
 
 public class SignalRContext : DbContext
 {
-    public SignalRContext(DbContextOptions<SignalRContext> options) : base(options) { }
-
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        base.OnConfiguring(optionsBuilder);
+        if (!optionsBuilder.IsConfigured)
+        {
+            optionsBuilder.UseNpgsql(
+                "Host=localhost;Port=5432;Database=QrCodeOrderManager;Username=user;Password=password");
+        }
     }
 
     public DbSet<About> Abouts { get; set; }

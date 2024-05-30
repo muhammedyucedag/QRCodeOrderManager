@@ -1,6 +1,6 @@
 using QRCodeOrderManager.Application.Repository;
 using QRCodeOrderManager.Domain.Entities;
-using SignalR.DataAccessLayer.Concrete;
+using QRCodeOrderManager.Persistance.Concrete;
 
 namespace SignalR.DataAccessLayer.Repository;
 

@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
-using SignalR.DataAccessLayer.Concrete;
+using QRCodeOrderManager.Persistance.Concrete;
 
 #nullable disable
 
@@ -22,13 +22,11 @@ namespace SignalR.DataAccessLayer.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("SignalR.Entity.Entities.About", b =>
+            modelBuilder.Entity("QRCodeOrderManager.Domain.Entities.About", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+                        .HasColumnType("uuid");
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("timestamp with time zone");
@@ -53,13 +51,11 @@ namespace SignalR.DataAccessLayer.Migrations
                     b.ToTable("Abouts");
                 });
 
-            modelBuilder.Entity("SignalR.Entity.Entities.Category", b =>
+            modelBuilder.Entity("QRCodeOrderManager.Domain.Entities.Category", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+                        .HasColumnType("uuid");
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("timestamp with time zone");
@@ -79,13 +75,11 @@ namespace SignalR.DataAccessLayer.Migrations
                     b.ToTable("Categories");
                 });
 
-            modelBuilder.Entity("SignalR.Entity.Entities.Contact", b =>
+            modelBuilder.Entity("QRCodeOrderManager.Domain.Entities.Contact", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+                        .HasColumnType("uuid");
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("timestamp with time zone");
@@ -114,13 +108,11 @@ namespace SignalR.DataAccessLayer.Migrations
                     b.ToTable("Contacts");
                 });
 
-            modelBuilder.Entity("SignalR.Entity.Entities.Discount", b =>
+            modelBuilder.Entity("QRCodeOrderManager.Domain.Entities.Discount", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+                        .HasColumnType("uuid");
 
                     b.Property<string>("Amount")
                         .IsRequired()
@@ -149,13 +141,11 @@ namespace SignalR.DataAccessLayer.Migrations
                     b.ToTable("Discounts");
                 });
 
-            modelBuilder.Entity("SignalR.Entity.Entities.Product", b =>
+            modelBuilder.Entity("QRCodeOrderManager.Domain.Entities.Product", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+                        .HasColumnType("uuid");
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("timestamp with time zone");
@@ -186,13 +176,11 @@ namespace SignalR.DataAccessLayer.Migrations
                     b.ToTable("Products");
                 });
 
-            modelBuilder.Entity("SignalR.Entity.Entities.Reservation", b =>
+            modelBuilder.Entity("QRCodeOrderManager.Domain.Entities.Reservation", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+                        .HasColumnType("uuid");
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("timestamp with time zone");
@@ -223,13 +211,11 @@ namespace SignalR.DataAccessLayer.Migrations
                     b.ToTable("Reservations");
                 });
 
-            modelBuilder.Entity("SignalR.Entity.Entities.SocialMedia", b =>
+            modelBuilder.Entity("QRCodeOrderManager.Domain.Entities.SocialMedia", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+                        .HasColumnType("uuid");
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("timestamp with time zone");
@@ -254,13 +240,11 @@ namespace SignalR.DataAccessLayer.Migrations
                     b.ToTable("SocialMedia");
                 });
 
-            modelBuilder.Entity("SignalR.Entity.Entities.Sorter", b =>
+            modelBuilder.Entity("QRCodeOrderManager.Domain.Entities.Sorter", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+                        .HasColumnType("uuid");
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("timestamp with time zone");
@@ -281,13 +265,11 @@ namespace SignalR.DataAccessLayer.Migrations
                     b.ToTable("Sorters");
                 });
 
-            modelBuilder.Entity("SignalR.Entity.Entities.Testimonial", b =>
+            modelBuilder.Entity("QRCodeOrderManager.Domain.Entities.Testimonial", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+                        .HasColumnType("uuid");
 
                     b.Property<string>("Comment")
                         .IsRequired()

@@ -5,7 +5,6 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
       <UserSecretsId>ad24ff10-5908-4fbc-8ff8-0435898f5523</UserSecretsId>
-      <RootNamespace>SignalR.DataAccessLayer</RootNamespace>
   </PropertyGroup>
 
     <ItemGroup>

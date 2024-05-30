@@ -1,11 +1,9 @@
+using QRCodeOrderManager.Application.Abstractions.Services;
 using QRCodeOrderManager.Application.Exceptions.About;
-using QRCodeOrderManager.Application.Features.Commands.About;
 using QRCodeOrderManager.Application.Repository;
 using QRCodeOrderManager.Domain.Entities;
-using SignalR.BusinessLayer.Abstractions.Services;
-using SignalR.DataAccessLayer.Abstract;
 
-namespace SignalR.DataAccessLayer.Services;
+namespace QRCodeOrderManager.Persistance.Services;
 
 public class AboutService : IAboutService
 {
@@ -29,6 +27,11 @@ public class AboutService : IAboutService
             throw new CreateAboutFailedException();
     }
 
+    public Task UpdateAsync(About entity)
+    {
+        throw new NotImplementedException();
+    }
+
     public async Task DeleteAsync(Guid id)
     {
         var about = await _aboutReadRepository.GetByIdAsync(id);
@@ -50,11 +53,6 @@ public class AboutService : IAboutService
     }
 
     public Task<List<About>> GetListAllAsync()
-    {
-        throw new NotImplementedException();
-    }
-
-    public Task<About> UpdateAsync(UpdateAboutCommand command)
     {
         throw new NotImplementedException();
     }

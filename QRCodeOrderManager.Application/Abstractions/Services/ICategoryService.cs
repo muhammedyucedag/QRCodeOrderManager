@@ -1,8 +1,7 @@
 using QRCodeOrderManager.Domain.Entities;
 
-namespace SignalR.BusinessLayer.Abstractions.Services;
+namespace QRCodeOrderManager.Application.Abstractions.Services;
 
 public interface ICategoryService : IGenericService<Category>
 {
-    
 }

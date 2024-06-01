@@ -2,6 +2,7 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using QRCodeOrderManager.Application.Features.Commands.About.Create;
 using QRCodeOrderManager.Application.Features.Queries.About.GetAboutById;
+using QRCodeOrderManager.Application.Features.Queries.About.GetAllAbout;
 using SignalR.Infrastructure.Base;
 
 namespace QRCodeOrderManager.WebApi.Controllers
@@ -24,7 +25,14 @@ namespace QRCodeOrderManager.WebApi.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetByIdAbout(Guid id)
         {
-            var response = await Mediator.Send(new GetByIdAboutCommand { Id = id });
+            var response = await Mediator.Send(new GetByIdAboutQueryCommand { Id = id });
+            return Ok(response);
+        }
+
+        [HttpGet("[action]")]
+        public async Task<IActionResult> GetAllAbout([FromQuery] GetAllAboutQueryCommand command)
+        {
+            var response = await Mediator.Send(command);
             return Ok(response);
         }
     }

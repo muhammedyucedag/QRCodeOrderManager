@@ -56,8 +56,13 @@ public class AboutService : IAboutService
         return await _aboutReadRepository.GetByIdAsync(id);
     }
 
-    public Task<List<About>> GetListAllAsync()
+    public async Task<List<About>> GetListAllAsync()
     {
-        return _aboutReadRepository.GetAllAsync();
+        var aboutsQuery = await _aboutReadRepository.GetAllAsync();
+
+        if (aboutsQuery is null)
+            throw new NotFoundAboutException();
+
+        return aboutsQuery;
     }
 }

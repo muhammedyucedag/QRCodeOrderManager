@@ -14,5 +14,6 @@ public class AboutMappingProfile : Profile
         CreateMap<About, CreateAboutDto>().ReverseMap();
         CreateMap<About, UpdateAboutDto>().ReverseMap();
         CreateMap<About, GetByIdAboutDto>().ReverseMap();
+        CreateMap<About, GetAllAboutDto>().ReverseMap();
     }
 }

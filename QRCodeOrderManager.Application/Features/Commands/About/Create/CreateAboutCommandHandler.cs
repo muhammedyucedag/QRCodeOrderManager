@@ -20,6 +20,7 @@ public class CreateAboutCommandHandler : IRequestHandler<CreateAboutCommand, Cre
     {
         var about = _mapper.Map<Domain.Entities.About>(request);
         await _aboutService.CreateAsync(about);
-        return new();
+        var createdAboutDto = _mapper.Map<CreateAboutDto>(about);
+        return createdAboutDto;
     }
 }

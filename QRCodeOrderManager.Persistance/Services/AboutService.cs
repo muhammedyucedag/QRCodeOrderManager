@@ -58,6 +58,6 @@ public class AboutService : IAboutService
 
     public Task<List<About>> GetListAllAsync()
     {
-        throw new NotImplementedException();
+        return _aboutReadRepository.GetAllAsync();
     }
 }

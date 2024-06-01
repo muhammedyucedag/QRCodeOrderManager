@@ -5,7 +5,7 @@ namespace QRCodeOrderManager.Application.Repository;
 
 public interface IReadRepository<T> : IRepository<T> where T : BaseEntity
 {
-    IQueryable<T> GetAll(bool tracking = true);
+    Task<List<T>> GetAllAsync();
     IQueryable<T> GetWhere(Expression<Func<T, bool>> method, bool tracking = true);
     Task<T?> GetFirstAsync(Expression<Func<T, bool>> method, bool tracking = true);
     Task<T?> GetByIdAsync(Guid id, bool tracking = true);

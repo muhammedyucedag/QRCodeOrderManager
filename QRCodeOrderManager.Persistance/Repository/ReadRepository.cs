@@ -17,15 +17,9 @@ public class ReadRepository<T> : IReadRepository<T> where T : BaseEntity
 
     public DbSet<T> Table => _context.Set<T>();
 
-    public IQueryable<T> GetAll(bool tracking = true)
+    public async Task<List<T>> GetAllAsync()
     {
-        var query = Table.AsQueryable();
-        if (!tracking)
-        {
-            query = Table.AsNoTracking();
-        }
-
-        return query;
+        return await _context.Set<T>().ToListAsync();
     }
 
     public IQueryable<T> GetWhere(Expression<Func<T, bool>> method, bool tracking = true)

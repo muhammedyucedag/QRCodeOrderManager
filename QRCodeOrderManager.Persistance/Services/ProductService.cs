@@ -5,7 +5,7 @@ namespace QRCodeOrderManager.Persistance.Services;
 
 public class ProductService : IProductService
 {
-    public Task AddAsync(Product entity)
+    public Task CreateAsync(Product entity)
     {
         throw new NotImplementedException();
     }

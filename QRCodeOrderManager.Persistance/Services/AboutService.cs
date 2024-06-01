@@ -16,15 +16,19 @@ public class AboutService : IAboutService
         _aboutReadRepository = aboutReadRepository;
     }
 
-    public async Task AddAsync(About entity)
+    public async Task CreateAsync(About entity)
     {
         entity.Id = Guid.NewGuid();
-        entity.CreatedDate = DateTime.Now;
+        entity.CreatedDate = DateTime.UtcNow;
 
-        var about = await _aboutWriteRepository.AddAsync(entity);
+        await _aboutWriteRepository.AddAsync(entity);
 
-        if (about == null)
+        var savedEntitiesCount = await _aboutWriteRepository.SaveAsync();
+
+        if (savedEntitiesCount == 0)
+        {
             throw new CreateAboutFailedException();
+        }
     }
 
     public Task UpdateAsync(About entity)

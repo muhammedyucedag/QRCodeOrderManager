@@ -5,7 +5,7 @@ namespace QRCodeOrderManager.Persistance.Services;
 
 public class DiscountService : IDiscountService
 {
-    public Task AddAsync(Discount entity)
+    public Task CreateAsync(Discount entity)
     {
         throw new NotImplementedException();
     }

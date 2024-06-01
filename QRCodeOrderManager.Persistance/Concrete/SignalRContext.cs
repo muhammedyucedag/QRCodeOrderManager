@@ -5,12 +5,16 @@ namespace QRCodeOrderManager.Persistance.Concrete;
 
 public class SignalRContext : DbContext
 {
+    public SignalRContext(DbContextOptions<SignalRContext> options) : base(options)
+    {
+    }
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         if (!optionsBuilder.IsConfigured)
         {
             optionsBuilder.UseNpgsql(
-                "Host=localhost;Port=5432;Database=QrCodeOrderManager;Username=user;Password=password");
+                "Host=localhost;Port=5432;Database=QrCodeOrderManager;Username=username;Password=password");
         }
     }
 

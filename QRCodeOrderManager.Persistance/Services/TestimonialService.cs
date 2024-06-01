@@ -5,7 +5,7 @@ namespace QRCodeOrderManager.Persistance.Services;
 
 public class TestimonialService : ITestimonailService
 {
-    public Task AddAsync(Testimonial entity)
+    public Task CreateAsync(Testimonial entity)
     {
         throw new NotImplementedException();
     }

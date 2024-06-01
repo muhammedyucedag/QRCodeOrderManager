@@ -77,6 +77,6 @@ public class ReadRepository<T> : IReadRepository<T> where T : BaseEntity
     {
         var query = Table.AsQueryable();
         var model = query.Where(data => data.Id == id);
-        return model;
+        return query;
     }
 }

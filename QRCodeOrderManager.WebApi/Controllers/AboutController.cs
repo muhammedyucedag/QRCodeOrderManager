@@ -1,6 +1,7 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using QRCodeOrderManager.Application.Features.Commands.About.Create;
+using QRCodeOrderManager.Application.Features.Commands.About.Delete;
 using QRCodeOrderManager.Application.Features.Queries.About.GetAboutById;
 using QRCodeOrderManager.Application.Features.Queries.About.GetAllAbout;
 using SignalR.Infrastructure.Base;
@@ -22,10 +23,17 @@ namespace QRCodeOrderManager.WebApi.Controllers
             return Ok(response);
         }
 
-        [HttpGet("{id}")]
-        public async Task<IActionResult> GetByIdAbout(Guid id)
+        [HttpGet("{AboutId}")]
+        public async Task<IActionResult> GetByIdAbout([FromRoute] GetByIdAboutQueryCommand command)
         {
-            var response = await Mediator.Send(new GetByIdAboutQueryCommand { Id = id });
+            var response = await Mediator.Send(command);
+            return Ok(response);
+        }
+
+        [HttpDelete("{AboutId}")]
+        public async Task<IActionResult> DeleteAbout([FromRoute] DeleteAboutCommand command)
+        {
+            var response = await Mediator.Send(command);
             return Ok(response);
         }
 

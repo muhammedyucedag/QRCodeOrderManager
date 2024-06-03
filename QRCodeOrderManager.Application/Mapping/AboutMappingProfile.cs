@@ -11,6 +11,7 @@ public class AboutMappingProfile : Profile
     {
         CreateMap<About, ResultAboutDto>().ReverseMap();
         CreateMap<CreateAboutCommand, About>().ReverseMap();
+        CreateMap<About, DeleteAboutDto>();
         CreateMap<About, CreateAboutDto>().ReverseMap();
         CreateMap<About, UpdateAboutDto>().ReverseMap();
         CreateMap<About, GetByIdAboutDto>().ReverseMap();

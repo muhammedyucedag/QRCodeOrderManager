@@ -19,7 +19,7 @@ public class GetByIdAboutQueryCommandHandler : IRequestHandler<GetByIdAboutQuery
 
     public async Task<GetByIdAboutDto> Handle(GetByIdAboutQueryCommand request, CancellationToken cancellationToken)
     {
-        var about = await _aboutService.GetByIdAsync(request.Id);
+        var about = await _aboutService.GetByIdAsync(request.AboutId);
 
         if (about == null)
         {

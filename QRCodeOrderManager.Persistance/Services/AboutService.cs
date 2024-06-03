@@ -49,11 +49,19 @@ public class AboutService : IAboutService
         {
             throw new DeleteAboutFailedException();
         }
+
+        await _aboutWriteRepository.SaveAsync();
     }
 
     public async Task<About?> GetByIdAsync(Guid id)
     {
-        return await _aboutReadRepository.GetByIdAsync(id);
+        var about = await _aboutReadRepository.GetByIdAsync(id);
+        if (about == null)
+        {
+            throw new NotFoundAboutException();
+        }
+
+        return about;
     }
 
     public async Task<List<About>> GetListAllAsync()

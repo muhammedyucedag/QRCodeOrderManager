@@ -1,6 +1,9 @@
-﻿namespace QRCodeOrderManager.Application.Features.Commands.About.Delete;
+﻿using MediatR;
+using QRCodeOrderManager.Application.DTOs.About;
 
-public class DeleteAboutCommand
+namespace QRCodeOrderManager.Application.Features.Commands.About.Delete;
+
+public class DeleteAboutCommand : IRequest<DeleteAboutDto>
 {
-    
+    public Guid AboutId { get; set; }
 }

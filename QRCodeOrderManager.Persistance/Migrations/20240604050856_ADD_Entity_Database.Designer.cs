@@ -12,7 +12,7 @@ using QRCodeOrderManager.Persistance.Concrete;
 namespace QRCodeOrderManager.Persistance.Migrations
 {
     [DbContext(typeof(SignalRContext))]
-    [Migration("20240601141239_ADD_Entity_Database")]
+    [Migration("20240604050856_ADD_Entity_Database")]
     partial class ADD_Entity_Database
     {
         /// <inheritdoc />

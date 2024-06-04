@@ -5,12 +5,12 @@ namespace QRCodeOrderManager.Persistance.Services;
 
 public class ReservationService : IReservationService
 {
-    public Task CreateAsync(Reservation entity)
+    public Task<Reservation> CreateAsync(Reservation entity)
     {
         throw new NotImplementedException();
     }
 
-    public Task UpdateAsync(Reservation entity)
+    public Task<Reservation> UpdateAsync(Reservation entity)
     {
         throw new NotImplementedException();
     }

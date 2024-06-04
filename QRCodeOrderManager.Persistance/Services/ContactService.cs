@@ -5,12 +5,12 @@ namespace QRCodeOrderManager.Persistance.Services;
 
 public class ContactService : IContactService
 {
-    public Task CreateAsync(Contact entity)
+    public Task<Contact> CreateAsync(Contact entity)
     {
         throw new NotImplementedException();
     }
 
-    public Task UpdateAsync(Contact entity)
+    public Task<Contact> UpdateAsync(Contact entity)
     {
         throw new NotImplementedException();
     }

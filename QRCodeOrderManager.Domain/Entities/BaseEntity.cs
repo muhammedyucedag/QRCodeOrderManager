@@ -13,5 +13,5 @@ public class BaseEntity
     public DateTimeOffset CreatedDate { get; set; }
 
     [Description("Güncelleme Tarihi")]
-    public virtual DateTimeOffset UpdatedDate { get; set; }
+    public DateTimeOffset UpdatedDate { get; set; }
 }

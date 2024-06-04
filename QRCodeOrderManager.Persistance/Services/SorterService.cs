@@ -5,12 +5,12 @@ namespace QRCodeOrderManager.Persistance.Services;
 
 public class SorterService : ISorterService
 {
-    public Task CreateAsync(Sorter entity)
+    public Task<Sorter> CreateAsync(Sorter entity)
     {
         throw new NotImplementedException();
     }
 
-    public Task UpdateAsync(Sorter entity)
+    public Task<Sorter> UpdateAsync(Sorter entity)
     {
         throw new NotImplementedException();
     }

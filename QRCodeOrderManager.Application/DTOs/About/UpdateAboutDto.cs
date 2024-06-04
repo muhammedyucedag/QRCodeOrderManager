@@ -2,8 +2,10 @@
 
 public class UpdateAboutDto
 {
-    public Guid id { get; set; }
-    public string ImageUrl { get; set; }
-    public string Title { get; set; }
-    public string Description { get; set; }
+    public string Message { get; set; }
+
+    public UpdateAboutDto(Guid aboutId)
+    {
+        Message = $"{aboutId} Numaralı hakkında bilgisi başarılı bir şekilde güncellenmiştir";
+    }
 }

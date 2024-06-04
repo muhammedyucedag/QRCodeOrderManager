@@ -11,11 +11,6 @@ public class SignalRContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        if (!optionsBuilder.IsConfigured)
-        {
-            optionsBuilder.UseNpgsql(
-                "Host=localhost;Port=5432;Database=QrCodeOrderManager;Username=username;Password=password");
-        }
     }
 
     public DbSet<About> Abouts { get; set; }

@@ -5,12 +5,12 @@ namespace QRCodeOrderManager.Persistance.Services;
 
 public class CategoryService : ICategoryService
 {
-    public Task CreateAsync(Category entity)
+    public Task<Category> CreateAsync(Category entity)
     {
         throw new NotImplementedException();
     }
 
-    public Task UpdateAsync(Category entity)
+    public Task<Category> UpdateAsync(Category entity)
     {
         throw new NotImplementedException();
     }

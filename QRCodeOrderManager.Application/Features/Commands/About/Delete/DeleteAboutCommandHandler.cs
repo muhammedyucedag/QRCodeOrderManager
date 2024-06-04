@@ -7,12 +7,10 @@ namespace QRCodeOrderManager.Application.Features.Commands.About.Delete;
 
 public class DeleteAboutCommandHandler : IRequestHandler<DeleteAboutCommand, DeleteAboutDto>
 {
-    private readonly IMapper _mapper;
     private readonly IAboutService _aboutService;
 
-    public DeleteAboutCommandHandler(IMapper mapper, IAboutService aboutService)
+    public DeleteAboutCommandHandler(IAboutService aboutService)
     {
-        _mapper = mapper;
         _aboutService = aboutService;
     }
 

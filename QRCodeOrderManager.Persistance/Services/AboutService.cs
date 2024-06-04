@@ -1,5 +1,7 @@
+using AutoMapper;
 using QRCodeOrderManager.Application.Abstractions.Services;
 using QRCodeOrderManager.Application.Exceptions.About;
+using QRCodeOrderManager.Application.Features.Commands.About.Update;
 using QRCodeOrderManager.Application.Repository;
 using QRCodeOrderManager.Domain.Entities;
 
@@ -9,46 +11,63 @@ public class AboutService : IAboutService
 {
     private readonly IAboutReadRepository _aboutReadRepository;
     private readonly IAboutWriteRepository _aboutWriteRepository;
+    private readonly IMapper _mapper;
 
-    public AboutService(IAboutReadRepository aboutReadRepository, IAboutWriteRepository aboutWriteRepository)
+    public AboutService(IAboutReadRepository aboutReadRepository, IAboutWriteRepository aboutWriteRepository,
+        IMapper mapper)
     {
         _aboutWriteRepository = aboutWriteRepository;
+        _mapper = mapper;
         _aboutReadRepository = aboutReadRepository;
     }
 
-    public async Task CreateAsync(About entity)
+    public async Task<About> CreateAsync(About entity)
     {
         entity.Id = Guid.NewGuid();
         entity.CreatedDate = DateTime.UtcNow;
 
-        await _aboutWriteRepository.AddAsync(entity);
+        var result = await _aboutWriteRepository.AddAsync(entity);
 
-        var savedEntitiesCount = await _aboutWriteRepository.SaveAsync();
-
-        if (savedEntitiesCount == 0)
-        {
+        if (!result)
             throw new CreateAboutFailedException();
-        }
+
+        await _aboutWriteRepository.SaveAsync();
+
+        return entity;
     }
 
-    public Task UpdateAsync(About entity)
+    public Task<About> UpdateAsync(About entity)
     {
         throw new NotImplementedException();
+    }
+
+    public async Task<About> UpdateAsync(UpdateAboutCommand request)
+    {
+        var about = await _aboutReadRepository.GetByIdAsync(request.Id);
+        if (about == null)
+            throw new NotFoundAboutException();
+
+        about.UpdatedDate = DateTime.UtcNow;
+
+        _mapper.Map(request, about);
+
+        var result = _aboutWriteRepository.Update(about);
+        if (!result)
+            throw new UpdateAboutFailedException();
+        await _aboutWriteRepository.SaveAsync();
+
+        return about;
     }
 
     public async Task DeleteAsync(Guid id)
     {
         var about = await _aboutReadRepository.GetByIdAsync(id);
         if (about == null)
-        {
             throw new NotFoundAboutException();
-        }
 
         var aboutResult = await _aboutWriteRepository.RemoveAsync(id);
         if (aboutResult == null)
-        {
             throw new DeleteAboutFailedException();
-        }
 
         await _aboutWriteRepository.SaveAsync();
     }
@@ -57,9 +76,7 @@ public class AboutService : IAboutService
     {
         var about = await _aboutReadRepository.GetByIdAsync(id);
         if (about == null)
-        {
             throw new NotFoundAboutException();
-        }
 
         return about;
     }

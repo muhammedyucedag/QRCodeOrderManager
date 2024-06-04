@@ -5,12 +5,12 @@ namespace QRCodeOrderManager.Persistance.Services;
 
 public class SocialMediaService : ISocialMediaService
 {
-    public Task CreateAsync(SocialMedia entity)
+    public Task<SocialMedia> CreateAsync(SocialMedia entity)
     {
         throw new NotImplementedException();
     }
 
-    public Task UpdateAsync(SocialMedia entity)
+    public Task<SocialMedia> UpdateAsync(SocialMedia entity)
     {
         throw new NotImplementedException();
     }

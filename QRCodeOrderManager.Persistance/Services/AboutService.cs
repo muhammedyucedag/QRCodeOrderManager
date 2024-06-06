@@ -62,12 +62,10 @@ public class AboutService : IAboutService
     public async Task DeleteAsync(Guid id)
     {
         var about = await _aboutReadRepository.GetByIdAsync(id);
-        if (about == null)
+        if (about is null)
             throw new NotFoundAboutException();
 
-        var aboutResult = await _aboutWriteRepository.RemoveAsync(id);
-        if (aboutResult == null)
-            throw new DeleteAboutFailedException();
+        await _aboutWriteRepository.RemoveAsync(id);
 
         await _aboutWriteRepository.SaveAsync();
     }

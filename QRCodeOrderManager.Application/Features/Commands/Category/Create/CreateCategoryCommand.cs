@@ -1,6 +1,10 @@
-﻿namespace QRCodeOrderManager.Application.Features.Commands.Category.Create;
+﻿using MediatR;
+using QRCodeOrderManager.Application.DTOs.Category;
 
-public class CreateCategoryCommand
+namespace QRCodeOrderManager.Application.Features.Commands.Category.Create;
+
+public class CreateCategoryCommand : IRequest<CreateCategoryDto>
 {
-    
+    public string Name { get; set; }
+    public bool Status { get; set; }
 }

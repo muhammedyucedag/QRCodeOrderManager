@@ -1,6 +1,9 @@
-﻿namespace QRCodeOrderManager.Application.Features.Commands.Category.Delete;
+﻿using MediatR;
+using QRCodeOrderManager.Application.DTOs.Category;
 
-public class DeleteCategoryCommand
+namespace QRCodeOrderManager.Application.Features.Commands.Category.Delete;
+
+public class DeleteCategoryCommand : IRequest<DeleteCategoryDto>
 {
-    
+    public Guid CategoryId { get; set; }
 }

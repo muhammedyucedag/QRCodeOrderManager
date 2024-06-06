@@ -17,10 +17,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Controllers\" />
-    </ItemGroup>
-
-    <ItemGroup>
       <ProjectReference Include="..\QRCodeOrderManager.Application\QRCodeOrderManager.Application.csproj" />
       <ProjectReference Include="..\QRCodeOrderManager.Persistance\QRCodeOrderManager.Persistance.csproj" />
     </ItemGroup>

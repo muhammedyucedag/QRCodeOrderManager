@@ -1,4 +1,3 @@
-using AutoMapper;
 using MediatR;
 using QRCodeOrderManager.Application.Abstractions.Services;
 using QRCodeOrderManager.Application.DTOs.About;

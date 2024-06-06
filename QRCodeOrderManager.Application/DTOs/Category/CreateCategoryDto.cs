@@ -1,7 +1,11 @@
-﻿namespace QRCodeOrderManager.Application.DTOs.Category;
+﻿using QRCodeOrderManager.Application.Features.Commands.Response;
 
-public class CreateCategoryDto
+namespace QRCodeOrderManager.Application.DTOs.Category;
+
+public class CreateCategoryDto : BaseResponse
 {
-    public string Name { get; set; }
-    public bool Status { get; set; }
+   public CreateCategoryDto(Guid categoryId)
+   {
+      Message = $"{categoryId} Numaralı kategori başarılı bir şekilde oluşturuldu";
+   }
 }

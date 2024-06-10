@@ -21,10 +21,8 @@ public class GetByIdAboutQueryCommandHandler : IRequestHandler<GetByIdAboutQuery
     {
         var about = await _aboutService.GetByIdAsync(request.AboutId);
 
-        if (about == null)
-        {
+        if (about is null)
             throw new NotFoundAboutException();
-        }
 
         return _mapper.Map<GetByIdAboutDto>(about);
     }

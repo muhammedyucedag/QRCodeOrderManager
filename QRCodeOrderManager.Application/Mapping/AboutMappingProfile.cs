@@ -10,7 +10,6 @@ public class AboutMappingProfile : Profile
 {
     public AboutMappingProfile()
     {
-        CreateMap<About, ResultAboutDto>().ReverseMap();
         CreateMap<CreateAboutCommand, About>().ReverseMap();
         CreateMap<UpdateAboutCommand, About>().ReverseMap();
         CreateMap<UpdateAboutCommand, UpdateAboutDto>().ReverseMap();

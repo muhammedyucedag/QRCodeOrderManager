@@ -1,6 +1,6 @@
 ﻿namespace QRCodeOrderManager.Application.DTOs.Category;
 
-public class ResultCategoryDto
+public class GetAllCategoryDto
 {
     public Guid Id { get; set; }
     public string Name { get; set; }

@@ -1,5 +1,3 @@
-using System.Runtime.Serialization;
-
 namespace QRCodeOrderManager.Application.Exceptions.About;
 
 public class NotFoundAboutException : BaseException

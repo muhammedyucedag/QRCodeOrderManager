@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 using QRCodeOrderManager.Application.Features.Commands.Category.Create;
 using QRCodeOrderManager.Application.Features.Commands.Category.Delete;
 using QRCodeOrderManager.Application.Features.Commands.Category.Update;
+using QRCodeOrderManager.Application.Features.Queries.Category.GetAllCategory;
+using QRCodeOrderManager.Application.Features.Queries.Category.GetCategoryById;
 using SignalR.Infrastructure.Base;
 
 namespace QRCodeOrderManager.WebApi.Controllers;
@@ -31,6 +33,20 @@ public class CategoryController : BaseController
 
     [HttpPut("[action]")]
     public async Task<IActionResult> UpdateAbout(UpdateCategoryCommand command)
+    {
+        var response = await Mediator.Send(command);
+        return Ok(response);
+    }
+    
+    [HttpGet("[action]")]
+    public async Task<IActionResult> GetAllCategory([FromQuery] GetAllCategoryQueryCommand command)
+    {
+        var response = await Mediator.Send(command);
+        return Ok(response);
+    }
+    
+    [HttpGet("{CategoryId}")]
+    public async Task<IActionResult> GetByIdCategory([FromRoute] GetByIdCategoryQueryCommand command)
     {
         var response = await Mediator.Send(command);
         return Ok(response);

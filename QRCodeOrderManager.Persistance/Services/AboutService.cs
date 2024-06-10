@@ -54,6 +54,7 @@ public class AboutService : IAboutService
         var result = _aboutWriteRepository.Update(about);
         if (!result)
             throw new UpdateAboutFailedException();
+
         await _aboutWriteRepository.SaveAsync();
 
         return about;
@@ -73,7 +74,7 @@ public class AboutService : IAboutService
     public async Task<About?> GetByIdAsync(Guid id)
     {
         var about = await _aboutReadRepository.GetByIdAsync(id);
-        if (about == null)
+        if (about is null)
             throw new NotFoundAboutException();
 
         return about;
@@ -81,11 +82,10 @@ public class AboutService : IAboutService
 
     public async Task<List<About>> GetListAllAsync()
     {
-        var aboutsQuery = await _aboutReadRepository.GetAllAsync();
-
-        if (aboutsQuery is null)
+        var abouts = await _aboutReadRepository.GetAllAsync();
+        if (abouts is null)
             throw new NotFoundAboutException();
 
-        return aboutsQuery;
+        return abouts;
     }
 }

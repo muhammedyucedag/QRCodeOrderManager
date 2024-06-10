@@ -1,8 +1,6 @@
-﻿using QRCodeOrderManager.Application.Features.Commands.Response;
+﻿namespace QRCodeOrderManager.Application.DTOs.Category;
 
-namespace QRCodeOrderManager.Application.DTOs.Category;
-
-public class DeleteCategoryDto : BaseResponse
+public class DeleteCategoryDto
 {
     public Guid Id { get; set; }
     public string Name { get; set; }

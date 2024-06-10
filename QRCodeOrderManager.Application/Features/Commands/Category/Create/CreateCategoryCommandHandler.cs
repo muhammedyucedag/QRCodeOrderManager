@@ -5,7 +5,7 @@ using QRCodeOrderManager.Application.DTOs.Category;
 
 namespace QRCodeOrderManager.Application.Features.Commands.Category.Create;
 
-public class CreateCategoryCommandHandler : IRequestHandler<CreateCategoryCommand, CreateCategoryDto>
+public class CreateCategoryCommandHandler : IRequestHandler<CreateCategoryCommand, CreateCategoryCommandResponse>
 {
     private readonly IMapper _mapper;
     private readonly ICategoryService _categoryService;
@@ -16,10 +16,10 @@ public class CreateCategoryCommandHandler : IRequestHandler<CreateCategoryComman
         _categoryService = categoryService;
     }
 
-    public async Task<CreateCategoryDto> Handle(CreateCategoryCommand request, CancellationToken cancellationToken)
+    public async Task<CreateCategoryCommandResponse> Handle(CreateCategoryCommand request, CancellationToken cancellationToken)
     {
         var category = _mapper.Map<Domain.Entities.Category>(request);
         await _categoryService.CreateAsync(category);
-        return new(category.Id);
+        return new();
     }
 }

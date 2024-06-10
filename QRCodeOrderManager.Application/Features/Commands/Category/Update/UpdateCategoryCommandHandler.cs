@@ -1,11 +1,20 @@
 using MediatR;
+using QRCodeOrderManager.Application.Abstractions.Services;
 
 namespace QRCodeOrderManager.Application.Features.Commands.Category.Update;
 
-public class UpdateCategoryCommandHandler : IRequestHandler<UpdateCategoryCommand>
+public class UpdateCategoryCommandHandler : IRequestHandler<UpdateCategoryCommand, UpdateCategoryCommandResponse>
 {
-    public Task Handle(UpdateCategoryCommand request, CancellationToken cancellationToken)
+    private readonly ICategoryService _categoryService;
+
+    public UpdateCategoryCommandHandler(ICategoryService categoryService)
     {
-        throw new NotImplementedException();
+        _categoryService = categoryService;
+    }
+
+    public async Task<UpdateCategoryCommandResponse> Handle(UpdateCategoryCommand request, CancellationToken cancellationToken)
+    {
+        await _categoryService.UpdateAsync(request);
+        return new();
     }
 }

@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using QRCodeOrderManager.Application.Features.Commands.Category.Create;
 using QRCodeOrderManager.Application.Features.Commands.Category.Delete;
+using QRCodeOrderManager.Application.Features.Commands.Category.Update;
 using SignalR.Infrastructure.Base;
 
 namespace QRCodeOrderManager.WebApi.Controllers;
@@ -23,6 +24,13 @@ public class CategoryController : BaseController
 
     [HttpDelete("{CategoryId}")]
     public async Task<IActionResult> DeleteAbout([FromRoute] DeleteCategoryCommand command)
+    {
+        var response = await Mediator.Send(command);
+        return Ok(response);
+    }
+
+    [HttpPut("[action]")]
+    public async Task<IActionResult> UpdateAbout(UpdateCategoryCommand command)
     {
         var response = await Mediator.Send(command);
         return Ok(response);

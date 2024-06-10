@@ -1,11 +1,8 @@
-﻿using QRCodeOrderManager.Application.Features.Commands.Response;
+﻿namespace QRCodeOrderManager.Application.DTOs.About;
 
-namespace QRCodeOrderManager.Application.DTOs.About;
-
-public class CreateAboutDto : BaseResponse
+public class CreateAboutDto
 {
-    public CreateAboutDto(Guid aboutId)
-    {
-        Message = $"{aboutId} Numaralı hakkında bilgisi başarılı bir şekilde oluşturuldu";
-    }
+    public string ImageUrl { get; set; }
+    public string Title { get; set; }
+    public string Description { get; set; }
 }

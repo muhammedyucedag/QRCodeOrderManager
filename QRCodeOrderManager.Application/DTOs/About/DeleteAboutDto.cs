@@ -1,11 +1,9 @@
-using QRCodeOrderManager.Application.Features.Commands.Response;
-
 namespace QRCodeOrderManager.Application.DTOs.About;
 
-public class DeleteAboutDto : BaseResponse
+public class DeleteAboutDto
 {
-    public DeleteAboutDto(Guid aboutId)
-    {
-        Message = $"{aboutId} Numaralı hakkında bilgisi başarılı bir şekilde silinmiştir";
-    }
+    public Guid Id { get; set; }
+    public string ImageUrl { get; set; }
+    public string Title { get; set; }
+    public string Description { get; set; }
 }

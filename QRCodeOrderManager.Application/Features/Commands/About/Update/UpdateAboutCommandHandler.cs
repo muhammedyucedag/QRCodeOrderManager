@@ -1,10 +1,9 @@
 using MediatR;
 using QRCodeOrderManager.Application.Abstractions.Services;
-using QRCodeOrderManager.Application.DTOs.About;
 
 namespace QRCodeOrderManager.Application.Features.Commands.About.Update;
 
-public class UpdateAboutCommandHandler : IRequestHandler<UpdateAboutCommand, UpdateAboutDto>
+public class UpdateAboutCommandHandler : IRequestHandler<UpdateAboutCommand, UpdateAboutCommandResponse>
 {
     private readonly IAboutService _aboutService;
 
@@ -13,9 +12,9 @@ public class UpdateAboutCommandHandler : IRequestHandler<UpdateAboutCommand, Upd
         _aboutService = aboutService;
     }
 
-    public async Task<UpdateAboutDto> Handle(UpdateAboutCommand request, CancellationToken cancellationToken)
+    public async Task<UpdateAboutCommandResponse> Handle(UpdateAboutCommand request, CancellationToken cancellationToken)
     {
         await _aboutService.UpdateAsync(request);
-        return new(request.Id);
+        return new();
     }
 }

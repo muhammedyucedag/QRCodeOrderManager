@@ -5,7 +5,7 @@ using QRCodeOrderManager.Application.DTOs.About;
 
 namespace QRCodeOrderManager.Application.Features.Commands.About.Create;
 
-public class CreateAboutCommandHandler : IRequestHandler<CreateAboutCommand, CreateAboutDto>
+public class CreateAboutCommandHandler : IRequestHandler<CreateAboutCommand, CreateAboutCommandResponse>
 {
     private readonly IMapper _mapper;
     private readonly IAboutService _aboutService;
@@ -16,10 +16,10 @@ public class CreateAboutCommandHandler : IRequestHandler<CreateAboutCommand, Cre
         _aboutService = aboutService;
     }
 
-    public async Task<CreateAboutDto> Handle(CreateAboutCommand request, CancellationToken cancellationToken)
+    public async Task<CreateAboutCommandResponse> Handle(CreateAboutCommand request, CancellationToken cancellationToken)
     {
         var about = _mapper.Map<Domain.Entities.About>(request);
         await _aboutService.CreateAsync(about);
-        return new(about.Id);
+        return new();
     }
 }

@@ -5,7 +5,7 @@ using QRCodeOrderManager.Application.DTOs.About;
 
 namespace QRCodeOrderManager.Application.Features.Commands.About.Delete;
 
-public class DeleteAboutCommandHandler : IRequestHandler<DeleteAboutCommand, DeleteAboutDto>
+public class DeleteAboutCommandHandler : IRequestHandler<DeleteAboutCommand, DeleteAboutCommandResponse>
 {
     private readonly IAboutService _aboutService;
 
@@ -14,9 +14,9 @@ public class DeleteAboutCommandHandler : IRequestHandler<DeleteAboutCommand, Del
         _aboutService = aboutService;
     }
 
-    public async Task<DeleteAboutDto> Handle(DeleteAboutCommand request, CancellationToken cancellationToken)
+    public async Task<DeleteAboutCommandResponse> Handle(DeleteAboutCommand request, CancellationToken cancellationToken)
     {
         await _aboutService.DeleteAsync(request.AboutId);
-        return new(request.AboutId);
+        return new();
     }
 }

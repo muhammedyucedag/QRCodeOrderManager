@@ -8,7 +8,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="Features\Queries\Contact\GetContactById\" />
       <Folder Include="Features\Queries\Discount\GetDiscountById\" />
       <Folder Include="Features\Queries\Product\GetProductById\" />
       <Folder Include="Features\Queries\Reservation\GetReservationById\" />

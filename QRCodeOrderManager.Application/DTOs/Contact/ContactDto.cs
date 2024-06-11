@@ -1,6 +1,6 @@
 ﻿namespace QRCodeOrderManager.Application.DTOs.Contact;
 
-public class ResultContactDto
+public class ContactDto
 {
     public Guid Id { get; set; }
     public string Location { get; set; }

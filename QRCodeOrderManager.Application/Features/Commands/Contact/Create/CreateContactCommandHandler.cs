@@ -15,8 +15,7 @@ public class CreateContactCommandHandler : IRequestHandler<CreateContactCommand,
         _mapper = mapper;
     }
 
-    public async Task<CreateContactCommandResponse> Handle(CreateContactCommand request,
-        CancellationToken cancellationToken)
+    public async Task<CreateContactCommandResponse> Handle(CreateContactCommand request, CancellationToken cancellationToken)
     {
         var contact = _mapper.Map<Domain.Entities.Contact>(request);
         await _contactService.CreateAsync(contact);

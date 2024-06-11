@@ -13,12 +13,16 @@ public static class ServiceRegistration
         // Repository
         services.AddScoped<IAboutReadRepository, AboutReadRepository>();
         services.AddScoped<IAboutWriteRepository, AboutWriteRepository>();
-        
+
         services.AddScoped<ICategoryReadRepository, CategoryReadRepository>();
         services.AddScoped<ICategoryWriteRepository, CategoryWriteRepository>();
-        
+
+        services.AddScoped<IContactReadRepository, ContactReadRepository>();
+        services.AddScoped<IContactWriteRepository, ContactWriteRepository>();
+
         // Services
         services.AddScoped<IAboutService, AboutService>();
         services.AddScoped<ICategoryService, CategoryService>();
+        services.AddScoped<IContactService, ContactService>();
     }
 }

@@ -35,12 +35,7 @@ public class CategoryService : ICategoryService
 
         return entity;
     }
-
-    public Task<Category> UpdateAsync(Category entity)
-    {
-        throw new NotImplementedException();
-    }
-
+    
     public async Task<Category> UpdateAsync(UpdateCategoryCommand request)
     {
         var category = await _categoryReadRepository.GetByIdAsync(request.Id);

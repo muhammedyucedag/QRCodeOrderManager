@@ -1,6 +1,11 @@
-﻿namespace QRCodeOrderManager.Application.Features.Commands.Discount.Update;
+﻿using QRCodeOrderManager.Application.Features.Commands.Response;
 
-public class UpdateDiscountCommandResponse
+namespace QRCodeOrderManager.Application.Features.Commands.Discount.Update;
+
+public class UpdateDiscountCommandResponse : BaseResponse
 {
-    
+    public UpdateDiscountCommandResponse()
+    {
+        Message = "İndirim başarılı bir şekilde güncellendi";
+    }
 }

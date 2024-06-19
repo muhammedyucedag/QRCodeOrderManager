@@ -1,11 +1,10 @@
 using MediatR;
-using QRCodeOrderManager.Application.Features.Commands.Contact.Update;
 
 namespace QRCodeOrderManager.Application.Features.Commands.Discount.Update;
 
-public class UpdateDiscountCommandHandler : IRequestHandler<UpdateDiscountCommand>
+public class UpdateDiscountCommandHandler : IRequestHandler<UpdateDiscountCommand, UpdateDiscountCommandResponse>
 {
-    public Task Handle(UpdateDiscountCommand request, CancellationToken cancellationToken)
+    public Task<UpdateDiscountCommandResponse> Handle(UpdateDiscountCommand request, CancellationToken cancellationToken)
     {
         throw new NotImplementedException();
     }

@@ -1,6 +1,11 @@
-﻿namespace QRCodeOrderManager.Application.Features.Commands.Discount.Delete;
+﻿using QRCodeOrderManager.Application.Features.Commands.Response;
 
-public class DeleteDiscountCommandResponse
+namespace QRCodeOrderManager.Application.Features.Commands.Discount.Delete;
+
+public class DeleteDiscountCommandResponse : BaseResponse
 {
-    
+    public DeleteDiscountCommandResponse()
+    {
+        Message = "İndirim başarılı bir şekilde silindi.";
+    }
 }

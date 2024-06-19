@@ -1,6 +1,8 @@
-﻿namespace QRCodeOrderManager.Application.Features.Commands.Discount.Delete;
+﻿using MediatR;
 
-public class DeleteDiscountCommand
+namespace QRCodeOrderManager.Application.Features.Commands.Discount.Delete;
+
+public class DeleteDiscountCommand : IRequest<DeleteDiscountCommandResponse>
 {
-    
+    public Guid DiscountId { get; set; }
 }

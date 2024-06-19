@@ -1,6 +1,6 @@
 ﻿namespace QRCodeOrderManager.Application.DTOs.Discount;
 
-public class UpdateDiscountDto
+public class DiscountDto
 {
     public Guid Id { get; set; }
     public string Title { get; set; }

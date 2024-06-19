@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using QRCodeOrderManager.Application.Features.Commands.Contact.Create;
 using QRCodeOrderManager.Application.Features.Commands.Contact.Delete;
 using QRCodeOrderManager.Application.Features.Commands.Contact.Update;
-using QRCodeOrderManager.Application.Features.Queries.Contact.GetAllCategory;
+using QRCodeOrderManager.Application.Features.Queries.Contact.GetAllContact;
 using QRCodeOrderManager.Application.Features.Queries.Contact.GetContactById;
 using SignalR.Infrastructure.Base;
 

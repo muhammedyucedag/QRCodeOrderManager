@@ -8,9 +8,6 @@ public class DiscountMappingProfile : Profile
 {
     public DiscountMappingProfile()
     {
-        CreateMap<Discount, ResultDiscountDto>().ReverseMap();
-        CreateMap<Discount, CreateDiscountDto>().ReverseMap();
-        CreateMap<Discount, UpdateDiscountDto>().ReverseMap();
-        CreateMap<Discount, GetDiscountDto>().ReverseMap();
+        CreateMap<Discount, DiscountDto>().ReverseMap();
     }
 }

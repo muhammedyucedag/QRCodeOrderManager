@@ -19,10 +19,14 @@ public static class ServiceRegistration
 
         services.AddScoped<IContactReadRepository, ContactReadRepository>();
         services.AddScoped<IContactWriteRepository, ContactWriteRepository>();
+        
+        services.AddScoped<IDiscountReadRepository, DiscountReadRepository>();
+        services.AddScoped<IDiscountWriteRepository, DiscountWriteRepository>();
 
         // Services
         services.AddScoped<IAboutService, AboutService>();
         services.AddScoped<ICategoryService, CategoryService>();
         services.AddScoped<IContactService, ContactService>();
+        services.AddScoped<IDiscountService, DiscountService>();
     }
 }

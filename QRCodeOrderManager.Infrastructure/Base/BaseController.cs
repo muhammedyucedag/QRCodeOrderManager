@@ -1,7 +1,7 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
-namespace SignalR.Infrastructure.Base;
+namespace QRCodeOrderManager.Infrastructure.Base;
 
 [Route("api/[controller]")]
 [ApiController]

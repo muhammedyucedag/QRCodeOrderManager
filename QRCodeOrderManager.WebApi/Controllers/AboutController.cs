@@ -5,7 +5,7 @@ using QRCodeOrderManager.Application.Features.Commands.About.Delete;
 using QRCodeOrderManager.Application.Features.Commands.About.Update;
 using QRCodeOrderManager.Application.Features.Queries.About.GetAboutById;
 using QRCodeOrderManager.Application.Features.Queries.About.GetAllAbout;
-using SignalR.Infrastructure.Base;
+using QRCodeOrderManager.Infrastructure.Base;
 
 namespace QRCodeOrderManager.WebApi.Controllers
 {

@@ -1,32 +1,85 @@
-﻿using QRCodeOrderManager.Application.Abstractions.Services;
+﻿using AutoMapper;
+using QRCodeOrderManager.Application.Abstractions.Services;
+using QRCodeOrderManager.Application.Exceptions.Discount;
+using QRCodeOrderManager.Application.Features.Commands.Discount.Update;
+using QRCodeOrderManager.Application.Repository;
 using QRCodeOrderManager.Domain.Entities;
 
 namespace QRCodeOrderManager.Persistance.Services;
 
 public class DiscountService : IDiscountService
 {
-    public Task<Discount> CreateAsync(Discount entity)
+    private readonly IDiscountReadRepository _discountReadRepository;
+    private readonly IDiscountWriteRepository _discountWriteRepository;
+    private readonly IMapper _mapper;
+
+    public DiscountService(IDiscountReadRepository discountReadRepository,
+        IDiscountWriteRepository discountWriteRepository, IMapper mapper)
     {
-        throw new NotImplementedException();
+        _discountReadRepository = discountReadRepository;
+        _discountWriteRepository = discountWriteRepository;
+        _mapper = mapper;
     }
 
-    public Task<Discount> UpdateAsync(Discount entity)
+    public async Task<Discount> CreateAsync(Discount entity)
     {
-        throw new NotImplementedException();
+        entity.Id = Guid.NewGuid();
+        entity.CreatedDate = DateTime.UtcNow;
+
+        var result = _discountWriteRepository.AddAsync(entity);
+        if (result is null)
+            throw new CreateDiscountFailedException();
+
+        await _discountWriteRepository.SaveAsync();
+
+        return entity;
     }
 
-    public Task DeleteAsync(Guid id)
+    public async Task<Discount> UpdateAsync(UpdateDiscountCommand command)
     {
-        throw new NotImplementedException();
+        var discount = await _discountReadRepository.GetByIdAsync(command.Id);
+        if (discount is null)
+            throw new NotFoundDiscountException();
+
+        discount.UpdatedDate = DateTime.UtcNow;
+
+        _mapper.Map(command, discount);
+
+        var result = _discountWriteRepository.Update(discount);
+        if (!result)
+            throw new UpdateDiscountFailedException();
+
+        await _discountWriteRepository.SaveAsync();
+
+        return discount;
     }
 
-    public Task<Discount?> GetByIdAsync(Guid id)
+    public async Task DeleteAsync(Guid id)
     {
-        throw new NotImplementedException();
+        var discount = await _discountReadRepository.GetByIdAsync(id);
+        if (discount is null)
+            throw new NotFoundDiscountException();
+
+        await _discountWriteRepository.RemoveAsync(id);
+
+        await _discountWriteRepository.SaveAsync();
     }
 
-    public Task<List<Discount>> GetListAllAsync()
+    public async Task<Discount?> GetByIdAsync(Guid id)
     {
-        throw new NotImplementedException();
+        var discount = await _discountReadRepository.GetByIdAsync(id);
+        if (discount is null)
+            throw new NotFoundDiscountException();
+
+        return discount;
+    }
+
+    public async Task<List<Discount>> GetListAllAsync()
+    {
+        var discounts = await _discountReadRepository.GetAllAsync();
+        if (discounts is null)
+            throw new NotFoundDiscountException();
+
+        return discounts;
     }
 }

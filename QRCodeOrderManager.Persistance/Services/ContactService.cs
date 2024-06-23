@@ -35,11 +35,6 @@ public class ContactService : IContactService
         return entity;
     }
 
-    public Task<Contact> UpdateAsync(Contact entity)
-    {
-        throw new NotImplementedException();
-    }
-    
     public async Task<Contact> UpdateAsync(UpdateContactCommand command)
     {
         var contact = await _contactReadRepository.GetByIdAsync(command.Id);
@@ -49,7 +44,7 @@ public class ContactService : IContactService
         contact.UpdatedDate = DateTime.UtcNow;
 
         _mapper.Map(command, contact);
-        
+
         var result = _contactWriteRepository.Update(contact);
         if (!result)
             throw new UpdateContactFailedException();

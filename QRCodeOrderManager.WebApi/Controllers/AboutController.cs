@@ -9,7 +9,7 @@ using QRCodeOrderManager.Infrastructure.Base;
 
 namespace QRCodeOrderManager.WebApi.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/abouts")]
     [ApiController]
     public class AboutController : BaseController
     {
@@ -17,6 +17,9 @@ namespace QRCodeOrderManager.WebApi.Controllers
         {
         }
 
+        /// <summary>
+        /// Hakkında için bu uç kullanılır.
+        /// </summary>
         [HttpPost]
         public async Task<IActionResult> CreateAbout(CreateAboutCommand command)
         {

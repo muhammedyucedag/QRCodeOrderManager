@@ -4,21 +4,23 @@
         <TargetFramework>net8.0</TargetFramework>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
-      <UserSecretsId>b96a1481-9127-4f6b-9998-617a397ff686</UserSecretsId>
-  </PropertyGroup>
+        <NoWarn>NU1803;NU1507;CS1591</NoWarn>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <UserSecretsId>b96a1481-9127-4f6b-9998-617a397ff686</UserSecretsId>
+    </PropertyGroup>
 
     <ItemGroup>
         <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.5">
-          <PrivateAssets>all</PrivateAssets>
-          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
-        <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.2" />
-        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+        <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.2"/>
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0"/>
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\QRCodeOrderManager.Application\QRCodeOrderManager.Application.csproj" />
-      <ProjectReference Include="..\QRCodeOrderManager.Persistance\QRCodeOrderManager.Persistance.csproj" />
+        <ProjectReference Include="..\QRCodeOrderManager.Application\QRCodeOrderManager.Application.csproj"/>
+        <ProjectReference Include="..\QRCodeOrderManager.Persistance\QRCodeOrderManager.Persistance.csproj"/>
     </ItemGroup>
 
 </Project>

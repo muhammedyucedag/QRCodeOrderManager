@@ -1,7 +1,5 @@
-using QRCodeOrderManager.Domain.Entities;
-
 namespace QRCodeOrderManager.Application.Repository;
 
-public interface IContactReadRepository : IReadRepository<Contact>
+public interface IContactReadRepository : IReadRepository<Domain.Entities.Contact>
 {
 }

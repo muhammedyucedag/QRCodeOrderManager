@@ -18,7 +18,7 @@ namespace QRCodeOrderManager.WebApi.Controllers
         }
 
         /// <summary>
-        /// Hakkında için bu uç kullanılır.
+        /// Hakkında oluşturmak için bu uç kullanılır.
         /// </summary>
         [HttpPost]
         public async Task<IActionResult> CreateAbout(CreateAboutCommand command)
@@ -27,6 +27,9 @@ namespace QRCodeOrderManager.WebApi.Controllers
             return Ok(response);
         }
 
+        /// <summary>
+        /// Kimlik bazlı hakkında bilgisini getirmek için bu uç kullanılır.
+        /// </summary>
         [HttpGet("{AboutId}")]
         public async Task<IActionResult> GetByIdAbout([FromRoute] GetByIdAboutQueryCommand command)
         {
@@ -34,6 +37,9 @@ namespace QRCodeOrderManager.WebApi.Controllers
             return Ok(response);
         }
 
+        /// <summary>
+        /// Hakkında bilgisini silmek için bu uç kullanılır.
+        /// </summary>
         [HttpDelete("{AboutId}")]
         public async Task<IActionResult> DeleteAbout([FromRoute] DeleteAboutCommand command)
         {
@@ -41,6 +47,9 @@ namespace QRCodeOrderManager.WebApi.Controllers
             return Ok(response);
         }
 
+        /// <summary>
+        /// Gakkında bilgilerini getirmek için bu uç kullanılır.
+        /// </summary>
         [HttpGet("[action]")]
         public async Task<IActionResult> GetAllAbout([FromQuery] GetAllAboutQueryCommand command)
         {
@@ -48,6 +57,9 @@ namespace QRCodeOrderManager.WebApi.Controllers
             return Ok(response);
         }
 
+        /// <summary>
+        /// Tüm hakkında bilgisini güncellemek için bu uç kullanılır.
+        /// </summary>
         [HttpPut("[action]")]
         public async Task<IActionResult> UpdateAbout(UpdateAboutCommand command)
         {

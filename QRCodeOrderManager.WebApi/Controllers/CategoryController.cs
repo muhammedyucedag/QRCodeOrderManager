@@ -9,7 +9,7 @@ using QRCodeOrderManager.Infrastructure.Base;
 
 namespace QRCodeOrderManager.WebApi.Controllers;
 
-[Route("api/[controller]")]
+[Route("api/categories")]
 [ApiController]
 public class CategoryController : BaseController
 {
@@ -17,27 +17,39 @@ public class CategoryController : BaseController
     {
     }
 
+    /// <summary>
+    /// Şirket oluşturmak için bu uç kullanılır.
+    /// </summary>
     [HttpPost]
-    public async Task<IActionResult> CreateAbout(CreateCategoryCommand command)
+    public async Task<IActionResult> CreateCategory(CreateCategoryCommand command)
     {
         var response = await Mediator.Send(command);
         return Ok(response);
     }
 
+    /// <summary>
+    /// Şirket'i silmek için bu uç kullanılır.
+    /// </summary>
     [HttpDelete("{CategoryId}")]
-    public async Task<IActionResult> DeleteAbout([FromRoute] DeleteCategoryCommand command)
+    public async Task<IActionResult> DeleteCategory([FromRoute] DeleteCategoryCommand command)
     {
         var response = await Mediator.Send(command);
         return Ok(response);
     }
 
+    /// <summary>
+    /// Şirket'i güncellemek için bu uç kullanılır.
+    /// </summary>
     [HttpPut("[action]")]
-    public async Task<IActionResult> UpdateAbout(UpdateCategoryCommand command)
+    public async Task<IActionResult> UpdateCategory(UpdateCategoryCommand command)
     {
         var response = await Mediator.Send(command);
         return Ok(response);
     }
     
+    /// <summary>
+    /// Şirketleri getirmek için bu uç kullanılır.
+    /// </summary>
     [HttpGet("[action]")]
     public async Task<IActionResult> GetAllCategory([FromQuery] GetAllCategoryQueryCommand command)
     {
@@ -45,6 +57,9 @@ public class CategoryController : BaseController
         return Ok(response);
     }
     
+    /// <summary>
+    /// Kimlik bazlı şirketleri getirmek için bu uç kullanılır.
+    /// </summary>
     [HttpGet("{CategoryId}")]
     public async Task<IActionResult> GetByIdCategory([FromRoute] GetByIdCategoryQueryCommand command)
     {

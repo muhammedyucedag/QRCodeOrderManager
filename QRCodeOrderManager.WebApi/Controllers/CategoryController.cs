@@ -38,7 +38,7 @@ public class CategoryController : BaseController
     }
 
     /// <summary>
-    /// Şirket'i güncellemek için bu uç kullanılır.
+    /// Şirket bilgilerini güncellemek için bu uç kullanılır.
     /// </summary>
     [HttpPut("[action]")]
     public async Task<IActionResult> UpdateCategory(UpdateCategoryCommand command)

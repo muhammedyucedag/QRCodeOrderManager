@@ -1,7 +1,6 @@
 using System.Reflection;
 using AutoMapper;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.OpenApi.Models;
 using QRCodeOrderManager.Persistance;
 using QRCodeOrderManager.Persistance.Concrete;
 
@@ -12,17 +11,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
-    c.SwaggerDoc("v1", new OpenApiInfo
-    {
-        Title = "Your API",
-        Version = "v1",
-        Description = "API documentation using Swagger"
-    });
-
-    // XML belgelerini ekleyelim (eğer kullanıyorsanız)
-    var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
-    var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
-    c.IncludeXmlComments(xmlPath);
+    c.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, $"{Assembly.GetExecutingAssembly().GetName().Name}.xml"));
 });
     
 builder.Services.AddPersistenceServices();

@@ -1,6 +1,7 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using QRCodeOrderManager.Application.Features.Commands.Contact.Create;
+using QRCodeOrderManager.Application.Features.Commands.Product.Create;
 using QRCodeOrderManager.Application.Features.Commands.Product.Delete;
 using QRCodeOrderManager.Application.Features.Commands.Product.Update;
 using QRCodeOrderManager.Application.Features.Queries.Product.GetAllProduct;
@@ -9,7 +10,7 @@ using QRCodeOrderManager.Infrastructure.Base;
 
 namespace QRCodeOrderManager.WebApi.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/product")]
     [ApiController]
     public class ProductController : BaseController
     {
@@ -21,7 +22,7 @@ namespace QRCodeOrderManager.WebApi.Controllers
         /// Ürün oluşturmak için bu uç kullanılır.
         /// </summary>
         [HttpPost]
-        public async Task<IActionResult> CreateContact(CreateContactCommand command)
+        public async Task<IActionResult> CreateContact(CreateProductCommand command)
         {
             var response = await Mediator.Send(command);
             return Ok(response);

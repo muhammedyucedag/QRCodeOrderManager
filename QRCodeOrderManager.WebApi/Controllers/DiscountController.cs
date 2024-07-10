@@ -9,7 +9,7 @@ using QRCodeOrderManager.Infrastructure.Base;
 
 namespace QRCodeOrderManager.WebApi.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/discount")]
     [ApiController]
     public class DiscountController : BaseController
     {

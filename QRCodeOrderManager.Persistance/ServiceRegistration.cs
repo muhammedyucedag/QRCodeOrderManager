@@ -22,11 +22,15 @@ public static class ServiceRegistration
         
         services.AddScoped<IDiscountReadRepository, DiscountReadRepository>();
         services.AddScoped<IDiscountWriteRepository, DiscountWriteRepository>();
+        
+        services.AddScoped<IProductReadRepository, ProductReadRepository>();
+        services.AddScoped<IProductWriteRepository, ProductWriteRepository>();
 
         // Services
         services.AddScoped<IAboutService, AboutService>();
         services.AddScoped<ICategoryService, CategoryService>();
         services.AddScoped<IContactService, ContactService>();
         services.AddScoped<IDiscountService, DiscountService>();
+        services.AddScoped<IProductService, ProductService>();
     }
 }

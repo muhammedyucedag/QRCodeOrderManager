@@ -1,12 +1,20 @@
 using MediatR;
-using QRCodeOrderManager.Application.Features.Commands.Discount.Update;
+using QRCodeOrderManager.Application.Abstractions.Services;
 
 namespace QRCodeOrderManager.Application.Features.Commands.Product.Update;
 
-public class UpdateProductCommandHandler : IRequestHandler<UpdateProductCommand>
+public class UpdateProductCommandHandler : IRequestHandler<UpdateProductCommand, UpdateProductCommandResponse>
 {
-    public Task Handle(UpdateProductCommand request, CancellationToken cancellationToken)
+    private readonly IProductService _productService;
+
+    public UpdateProductCommandHandler(IProductService productService)
     {
-        throw new NotImplementedException();
+        _productService = productService;
+    }
+
+    public async Task<UpdateProductCommandResponse> Handle(UpdateProductCommand request, CancellationToken cancellationToken)
+    {
+        await _productService.UpdateAsync(request);
+        return new();
     }
 }

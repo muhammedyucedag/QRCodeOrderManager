@@ -6,6 +6,7 @@ namespace QRCodeOrderManager.Application.Features.Commands.Contact.Delete;
 public class DeleteContactCommandHandler : IRequestHandler<DeleteContactCommand, DeleteContactCommandResponse>
 {
     private readonly IContactService _contactService;
+    
     public DeleteContactCommandHandler(IContactService contactService)
     {
         _contactService = contactService;

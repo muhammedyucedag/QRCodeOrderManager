@@ -2,7 +2,7 @@
 
 public class CreateDiscountFailedException : BaseException
 {
-    public CreateDiscountFailedException() : base("İndirim başarılı bir şekilde oluşturuldu.")
+    public CreateDiscountFailedException() : base("İndirim oluşturma işlemi başarısız.")
     {
     }
 }

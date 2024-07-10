@@ -3,9 +3,8 @@ using MediatR;
 using QRCodeOrderManager.Application.Abstractions.Services;
 using QRCodeOrderManager.Application.DTOs.Contact;
 using QRCodeOrderManager.Application.Exceptions.Contact;
-using QRCodeOrderManager.Application.Features.Queries.Contact.GetAllContact;
 
-namespace QRCodeOrderManager.Application.Features.Queries.Contact.GetAllCategory;
+namespace QRCodeOrderManager.Application.Features.Queries.Contact.GetAllContact;
 
 public class GetAllContactQueryCommandHandler : IRequestHandler<GetAllContactQueryCommand, ContactDto[]>
 {

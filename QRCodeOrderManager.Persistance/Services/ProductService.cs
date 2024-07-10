@@ -33,29 +33,53 @@ public class ProductService : IProductService
 
         return entity;
     }
-
-    public Task<Product> UpdateAsync(Product entity)
+    
+    public async Task<Product> UpdateAsync(UpdateProductCommand command)
     {
-        throw new NotImplementedException();
+        var product = await _productReadRepository.GetByIdAsync(command.Id);
+        if (product is null)
+            throw new NotFoundProductException();
+
+        product.UpdatedDate = DateTime.UtcNow;
+
+        _mapper.Map(command, product);
+
+        var result = _productWriteRepository.Update(product);
+        if (!result)
+            throw new UpdateProductFailedException();
+
+        await _productWriteRepository.SaveAsync();
+
+        return product;
+    }  
+
+    public async Task DeleteAsync(Guid id)
+    {
+        var product = await _productReadRepository.GetByIdAsync(id);
+        if (product is null)
+            throw new NotFoundProductException();
+
+        await _productWriteRepository.RemoveAsync(id);
+        
+        await _productWriteRepository.SaveAsync();
     }
 
-    public Task DeleteAsync(Guid id)
+    public async Task<Product?> GetByIdAsync(Guid id)
     {
-        throw new NotImplementedException();
+        var product = await _productReadRepository.GetByIdAsync(id);
+        if (product is null)
+            throw new NotFoundProductException();
+
+        return product;
     }
 
-    public Task<Product?> GetByIdAsync(Guid id)
+    public async Task<List<Product>> GetListAllAsync()
     {
-        throw new NotImplementedException();
-    }
+        var products = await _productReadRepository.GetAllAsync();
+        if (products is null)
+            throw new NotFoundProductException();
 
-    public Task<List<Product>> GetListAllAsync()
-    {
-        throw new NotImplementedException();
+        return products;
     }
-
-    public Task<Product> UpdateAsync(UpdateProductCommand command)
-    {
-        throw new NotImplementedException();
-    }
+         
 }

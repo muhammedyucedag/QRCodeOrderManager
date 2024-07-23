@@ -51,7 +51,7 @@ namespace QRCodeOrderManager.WebApi.Controllers
         /// İndirim bilgilerini getirmek için bu uç kullanılır.
         /// </summary>
         [HttpGet("[action]")]
-        public async Task<IActionResult> GetAllDiscount(GetAllDiscountQueryCommand command)
+        public async Task<IActionResult> GetAllDiscount([FromQuery] GetAllDiscountQueryCommand command)
         {
             var response = await Mediator.Send(command);
             return Ok(response);
@@ -61,7 +61,7 @@ namespace QRCodeOrderManager.WebApi.Controllers
         /// Kimlik bazlı indirim bilgisini getirmek için bu uç kullanılır.
         /// </summary>
         [HttpGet("{DiscountId}")]
-        public async Task<IActionResult> GetByIdDiscount(GetDiscountByIdQueryCommand command)
+        public async Task<IActionResult> GetByIdDiscount([FromRoute] GetDiscountByIdQueryCommand command)
         {
             var response = await Mediator.Send(command);
             return Ok(response);

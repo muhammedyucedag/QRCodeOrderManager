@@ -1,11 +1,20 @@
 ﻿using MediatR;
+using QRCodeOrderManager.Application.Abstractions.Services;
 
 namespace QRCodeOrderManager.Application.Features.Commands.Discount.Delete;
 
 public class DeleteDiscountCommandHandler : IRequestHandler<DeleteDiscountCommand, DeleteDiscountCommandResponse>
 {
-    public Task<DeleteDiscountCommandResponse> Handle(DeleteDiscountCommand request, CancellationToken cancellationToken)
+    private readonly IDiscountService _discountService;
+    
+    public DeleteDiscountCommandHandler(IDiscountService discountService)
     {
-        throw new NotImplementedException();
+        _discountService = discountService;
+    }
+    
+    public async Task<DeleteDiscountCommandResponse> Handle(DeleteDiscountCommand request, CancellationToken cancellationToken)
+    {
+        await _discountService.DeleteAsync(request.DiscountId);
+        return new();
     }
 }

@@ -8,7 +8,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="Features\Queries\Reservation\GetReservationById\" />
       <Folder Include="Features\Queries\SocialMedia\GetSocialMediaById\" />
       <Folder Include="Features\Queries\Sorter\GetSorterById\" />
       <Folder Include="Features\Queries\Testimonial\GetTestimonialById\" />

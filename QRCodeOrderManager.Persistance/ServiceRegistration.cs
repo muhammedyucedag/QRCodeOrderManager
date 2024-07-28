@@ -25,6 +25,9 @@ public static class ServiceRegistration
         
         services.AddScoped<IProductReadRepository, ProductReadRepository>();
         services.AddScoped<IProductWriteRepository, ProductWriteRepository>();
+        
+        services.AddScoped<IReservationReadRepository, ReservationReadRepository>();
+        services.AddScoped<IReservationWriteRepository, ReservationWriteRepository>();
 
         // Services
         services.AddScoped<IAboutService, AboutService>();
@@ -32,5 +35,6 @@ public static class ServiceRegistration
         services.AddScoped<IContactService, ContactService>();
         services.AddScoped<IDiscountService, DiscountService>();
         services.AddScoped<IProductService, ProductService>();
+        services.AddScoped<IReservationService, ReservationService>();
     }
 }

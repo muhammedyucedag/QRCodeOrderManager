@@ -25,6 +25,4 @@ public class GetByIdProductQueryCommandHandler : IRequestHandler<GetByIdProductQ
 
         return _mapper.Map<ProductDto>(product);
     }
-    
-    
 }

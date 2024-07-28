@@ -1,6 +1,5 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using QRCodeOrderManager.Application.Features.Commands.Contact.Create;
 using QRCodeOrderManager.Application.Features.Commands.Product.Create;
 using QRCodeOrderManager.Application.Features.Commands.Product.Delete;
 using QRCodeOrderManager.Application.Features.Commands.Product.Update;

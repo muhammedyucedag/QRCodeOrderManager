@@ -1,6 +1,8 @@
-﻿namespace QRCodeOrderManager.Application.Features.Commands.SocialMedia.Delete;
+﻿using MediatR;
 
-public class DeleteSocialMediaCommand
+namespace QRCodeOrderManager.Application.Features.Commands.SocialMedia.Delete;
+
+public class DeleteSocialMediaCommand : IRequest<DeleteSocialMediaCommandResponse>
 {
-    
+    public Guid SocialMediaId { get; set; }
 }

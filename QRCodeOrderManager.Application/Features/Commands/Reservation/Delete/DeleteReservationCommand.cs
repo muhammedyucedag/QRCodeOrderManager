@@ -1,5 +1,4 @@
 ﻿using MediatR;
-using QRCodeOrderManager.Application.Features.Commands.Product.Delete;
 
 namespace QRCodeOrderManager.Application.Features.Commands.Reservation.Delete;
 

@@ -2,7 +2,6 @@
 
 namespace QRCodeOrderManager.Application.Features.Commands.Reservation.Update;
 
-
 public class UpdateReservationCommandResponse : BaseResponse
 {
     public UpdateReservationCommandResponse()

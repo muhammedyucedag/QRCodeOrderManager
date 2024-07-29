@@ -32,7 +32,25 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwaggerUI(c =>
+    {
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+        
+        //swagger üzerinden enpoint uçlarının gizli şekilde getirir.
+        c.DocExpansion(Swashbuckle.AspNetCore.SwaggerUI.DocExpansion.None);
+    });
+    
+    // http://localhost:5035 url alanına tıklayınca sonuna otomatik /swagger ekler
+    app.Use(async (context, next) =>
+    {
+        if (context.Request.Path == "/")
+        {
+            context.Response.Redirect("/swagger");
+            return;
+        }
+
+        await next();
+    });
 }
 
 app.UseHttpsRedirection();

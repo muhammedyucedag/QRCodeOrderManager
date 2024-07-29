@@ -30,7 +30,7 @@ namespace QRCodeOrderManager.WebApi.Controllers
         /// <summary>
         /// İndirim bilgisini silmek için bu uç kullanılır.
         /// </summary>
-        [HttpDelete]
+        [HttpDelete("{DiscountId}")]
         public async Task<IActionResult> DeleteDiscount(DeleteDiscountCommand command)
         {
             var response = await Mediator.Send(command);

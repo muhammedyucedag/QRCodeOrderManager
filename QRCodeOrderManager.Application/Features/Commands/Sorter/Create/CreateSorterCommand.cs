@@ -1,6 +1,9 @@
-﻿namespace QRCodeOrderManager.Application.Features.Commands.Sorter.Create;
+﻿using MediatR;
 
-public class CreateSorterCommand
+namespace QRCodeOrderManager.Application.Features.Commands.Sorter.Create;
+
+public class CreateSorterCommand : IRequest<CreateSorterCommandResponse>
 {
-    
+    public string Title { get; set; }
+    public string Description { get; set; }
 }

@@ -1,32 +1,72 @@
-﻿using QRCodeOrderManager.Application.Abstractions.Services;
+﻿using AutoMapper;
+using QRCodeOrderManager.Application.Abstractions.Services;
+using QRCodeOrderManager.Application.Exceptions.Sorter;
+using QRCodeOrderManager.Application.Features.Commands.Sorter.Update;
+using QRCodeOrderManager.Application.Repository;
 using QRCodeOrderManager.Domain.Entities;
 
 namespace QRCodeOrderManager.Persistance.Services;
 
-public class SorterService : ISorterService
+public class SorterService(ISorterReadRepository sorterReadRepository, ISorterWriteRepository sorterWriteRepository, IMapper mapper) : ISorterService
 {
-    public Task<Sorter> CreateAsync(Sorter entity)
+    public async Task<Sorter> CreateAsync(Sorter entity)
     {
-        throw new NotImplementedException();
+        entity.Id = Guid.NewGuid();
+        entity.CreatedDate = DateTime.UtcNow;
+
+        var result = sorterWriteRepository.AddAsync(entity);
+        if (result is null)
+            throw new CreateSorterFailedException();
+
+        await sorterWriteRepository.SaveAsync();
+        return entity;
     }
 
-    public Task<Sorter> UpdateAsync(Sorter entity)
+    public async Task DeleteAsync(Guid id)
     {
-        throw new NotImplementedException();
+        var sorter = await sorterReadRepository.GetByIdAsync(id);
+        if (sorter is null)
+            throw new NotFoundSorterException();
+
+        await sorterWriteRepository.RemoveAsync(id);
+
+        await sorterWriteRepository.SaveAsync();
     }
 
-    public Task DeleteAsync(Guid id)
+    public async Task<Sorter?> GetByIdAsync(Guid id)
     {
-        throw new NotImplementedException();
+        var sorter = await sorterReadRepository.GetByIdAsync(id);
+        if (sorter is null)
+            throw new NotFoundSorterException();
+
+        return sorter;
     }
 
-    public Task<Sorter?> GetByIdAsync(Guid id)
+    public async Task<List<Sorter>> GetListAllAsync()
     {
-        throw new NotImplementedException();
+        var sorters = await sorterReadRepository.GetAllAsync();
+        if (sorters is null)
+            throw new NotFoundSorterException();
+
+        return sorters;
     }
 
-    public Task<List<Sorter>> GetListAllAsync()
+    public async Task<Sorter> UpdateAsync(UpdateSorterCommand command)
     {
-        throw new NotImplementedException();
+        var sorter = await sorterReadRepository.GetByIdAsync(command.Id);
+        if (sorter is null)
+            throw new NotFoundSorterException();
+
+        sorter.UpdatedDate = DateTime.UtcNow;
+
+        mapper.Map(command, sorter);
+
+        var result = sorterWriteRepository.Update(sorter);
+        if (!result)
+            throw new UpdateSocialMediaFailedException();
+
+        await socialMediaWriteRepository.SaveAsync();
+
+        return socialMedia;
     }
 }

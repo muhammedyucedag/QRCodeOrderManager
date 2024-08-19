@@ -11,12 +11,8 @@ namespace QRCodeOrderManager.WebApi.Controllers;
 
 [Route("api/socialmedia")]
 [ApiController]
-public class SocialMediaController : BaseController
+public class SocialMediaController(IMediator mediator) : BaseController(mediator)
 {
-    public SocialMediaController(IMediator mediator) : base(mediator)
-    {
-    }
-    
     /// <summary>
     /// Sosyal medya oluşturmak için bu uç kullanılır.
     /// </summary>

@@ -1,6 +1,8 @@
-﻿namespace QRCodeOrderManager.Application.Features.Commands.Sorter.Delete;
+﻿using MediatR;
 
-public class DeleteSorterCommand
+namespace QRCodeOrderManager.Application.Features.Commands.Sorter.Delete;
+
+public class DeleteSorterCommand : IRequest<DeleteSorterCommandResponse>
 {
-    
+    public Guid Id { get; set; }
 }

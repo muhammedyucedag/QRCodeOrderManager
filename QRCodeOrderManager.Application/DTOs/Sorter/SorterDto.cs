@@ -1,6 +1,6 @@
 ﻿namespace QRCodeOrderManager.Application.DTOs.Sorter;
 
-public class GetSorterDto
+public class SorterDto
 {
     public Guid Id { get; set; }
     public string Title { get; set; }

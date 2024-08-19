@@ -32,6 +32,9 @@ public static class ServiceRegistration
         
         services.AddScoped<ISocialMediaReadRepository, SocialMediaReadRepository>();
         services.AddScoped<ISocialMediaWriteRepository, SocialMediaWriteRepository>();
+        
+        services.AddScoped<ISorterReadRepository, SorterReadRepository>();
+        services.AddScoped<ISorterWriteRepository, SorterWriteRepository>();
 
         // Services
         services.AddScoped<IAboutService, AboutService>();
@@ -41,5 +44,6 @@ public static class ServiceRegistration
         services.AddScoped<IProductService, ProductService>();
         services.AddScoped<IReservationService, ReservationService>();
         services.AddScoped<ISocialMediaService, SocialMediaService>();
+        services.AddScoped<ISorterService, SorterService>();
     }
 }

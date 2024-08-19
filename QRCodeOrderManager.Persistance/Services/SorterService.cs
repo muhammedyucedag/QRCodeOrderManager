@@ -63,10 +63,10 @@ public class SorterService(ISorterReadRepository sorterReadRepository, ISorterWr
 
         var result = sorterWriteRepository.Update(sorter);
         if (!result)
-            throw new UpdateSocialMediaFailedException();
+            throw new UpdateSorterFailedException();
 
-        await socialMediaWriteRepository.SaveAsync();
+        await sorterWriteRepository.SaveAsync();
 
-        return socialMedia;
+        return sorter;
     }
 }

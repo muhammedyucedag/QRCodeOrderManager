@@ -2,7 +2,7 @@ using MediatR;
 
 namespace QRCodeOrderManager.Application.Features.Commands.Testimonial.Update;
 
-public class UpdateTestimonialCommand : IRequest
+public class UpdateTestimonialCommand : IRequest<UpdateTestimonialCommandResponse>
 {
     public Guid Id { get; set; }
     public string Name { get; set; }

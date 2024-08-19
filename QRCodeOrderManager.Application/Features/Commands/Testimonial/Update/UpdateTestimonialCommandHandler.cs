@@ -1,11 +1,13 @@
 using MediatR;
+using QRCodeOrderManager.Application.Abstractions.Services;
 
 namespace QRCodeOrderManager.Application.Features.Commands.Testimonial.Update;
 
-public class UpdateTestimonialCommandHandler : IRequestHandler<UpdateTestimonialCommand>
+public class UpdateTestimonialCommandHandler(ITestimonialService service) : IRequestHandler<UpdateTestimonialCommand, UpdateTestimonialCommandResponse>
 {
-    public Task Handle(UpdateTestimonialCommand request, CancellationToken cancellationToken)
+    public async Task<UpdateTestimonialCommandResponse> Handle(UpdateTestimonialCommand request, CancellationToken cancellationToken)
     {
-        throw new NotImplementedException();
+        await service.UpdateAsync(request);
+        return new();
     }
 }

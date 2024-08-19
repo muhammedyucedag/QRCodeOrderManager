@@ -8,6 +8,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <Folder Include="Features\Queries\Testimonial\GetAllTestimonials\" />
       <Folder Include="Features\Queries\Testimonial\GetTestimonialById\" />
     </ItemGroup>
 

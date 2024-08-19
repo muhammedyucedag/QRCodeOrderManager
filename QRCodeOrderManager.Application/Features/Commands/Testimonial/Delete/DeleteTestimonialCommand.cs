@@ -1,6 +1,8 @@
-﻿namespace QRCodeOrderManager.Application.Features.Commands.Testimonial.Delete;
+﻿using MediatR;
 
-public class DeleteTestimonialCommand
+namespace QRCodeOrderManager.Application.Features.Commands.Testimonial.Delete;
+
+public class DeleteTestimonialCommand : IRequest<DeleteTestimonialCommandResponse>
 {
-    
+    public Guid TestimonialId { get; set; }
 }

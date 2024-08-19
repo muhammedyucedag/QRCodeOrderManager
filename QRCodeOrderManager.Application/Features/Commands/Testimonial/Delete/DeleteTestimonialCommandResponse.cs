@@ -1,6 +1,11 @@
-﻿namespace QRCodeOrderManager.Application.Features.Commands.Testimonial.Delete;
+﻿using QRCodeOrderManager.Application.Features.Commands.Response;
 
-public class DeleteTestimonialCommandResponse
+namespace QRCodeOrderManager.Application.Features.Commands.Testimonial.Delete;
+
+public class DeleteTestimonialCommandResponse : BaseResponse
 {
-    
+    public DeleteTestimonialCommandResponse()
+    {
+        Message = "Referans başarılı bir şekilde silindi.";
+    }
 }

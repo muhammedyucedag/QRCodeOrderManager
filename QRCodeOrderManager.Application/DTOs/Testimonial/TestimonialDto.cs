@@ -1,7 +1,8 @@
 ﻿namespace QRCodeOrderManager.Application.DTOs.Testimonial;
 
-public class CreateTestimonialDto
+public class TestimonialDto
 {
+    public Guid Id { get; set; }
     public string Name { get; set; }
     public string Title { get; set; }
     public string Comment { get; set; }

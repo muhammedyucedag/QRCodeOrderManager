@@ -1,19 +1,10 @@
-using Microsoft.EntityFrameworkCore;
-using QRCodeOrderManager.Application.Common;
+﻿using Microsoft.EntityFrameworkCore;
 using QRCodeOrderManager.Domain.Entities;
 
-namespace QRCodeOrderManager.Persistance.Concrete;
+namespace QRCodeOrderManager.Application.Common;
 
-public class SignalRContext : DbContext, ISignalRContext
+public interface ISignalRContext
 {
-    public SignalRContext(DbContextOptions<SignalRContext> options) : base(options)
-    {
-    }
-
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    {
-    }
-
     public DbSet<About> Abouts { get; set; }
     public DbSet<Category> Categories { get; set; }
     public DbSet<Contact> Contacts { get; set; }

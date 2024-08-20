@@ -9,7 +9,7 @@ using QRCodeOrderManager.Infrastructure.Base;
 
 namespace QRCodeOrderManager.WebApi.Controllers;
 
-[Route("api/reservation")]
+[Route("api/reservations")]
 [ApiController]
 public class ReservationController : BaseController
 {

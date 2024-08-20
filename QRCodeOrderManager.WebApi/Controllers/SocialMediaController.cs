@@ -9,7 +9,7 @@ using QRCodeOrderManager.Infrastructure.Base;
 
 namespace QRCodeOrderManager.WebApi.Controllers;
 
-[Route("api/socialmedia")]
+[Route("api/socialmedias")]
 [ApiController]
 public class SocialMediaController(IMediator mediator) : BaseController(mediator)
 {

@@ -9,7 +9,7 @@ using QRCodeOrderManager.Infrastructure.Base;
 
 namespace QRCodeOrderManager.WebApi.Controllers
 {
-    [Route("api/sorter")]
+    [Route("api/sorters")]
     [ApiController]
     public class SorterController(IMediator mediator) : BaseController(mediator)
     {

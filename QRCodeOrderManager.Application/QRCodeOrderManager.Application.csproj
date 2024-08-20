@@ -8,11 +8,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="Features\Queries\Testimonial\GetAllTestimonials\" />
-      <Folder Include="Features\Queries\Testimonial\GetTestimonialById\" />
-    </ItemGroup>
-
-    <ItemGroup>
       <ProjectReference Include="..\QRCodeOrderManager.Domain\QRCodeOrderManager.Domain.csproj" />
     </ItemGroup>
 

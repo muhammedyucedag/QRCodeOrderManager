@@ -1,6 +1,10 @@
 using Microsoft.Extensions.DependencyInjection;
 using QRCodeOrderManager.Application.Abstractions.Services;
+using QRCodeOrderManager.Application.Common;
 using QRCodeOrderManager.Application.Repository;
+using QRCodeOrderManager.Application.Repository.Product;
+using QRCodeOrderManager.Persistance.Concrete;
+using QRCodeOrderManager.Persistance.Repository.Product;
 using QRCodeOrderManager.Persistance.Services;
 using SignalR.DataAccessLayer.Repository;
 
@@ -49,5 +53,7 @@ public static class ServiceRegistration
         services.AddScoped<ISocialMediaService, SocialMediaService>();
         services.AddScoped<ISorterService, SorterService>();
         services.AddScoped<ITestimonialService, TestimonialService>();
+        services.AddScoped<ISignalRContext, SignalRContext>();
+
     }
 }

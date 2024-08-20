@@ -1,7 +1,6 @@
-using QRCodeOrderManager.Domain.Entities;
+namespace QRCodeOrderManager.Application.Repository.Product;
 
-namespace QRCodeOrderManager.Application.Repository;
-
-public interface IProductReadRepository : IReadRepository<Product>
+public interface IProductReadRepository : IReadRepository<Domain.Entities.Product>
 {
+    Task<List<Domain.Entities.Product>>  GetProductsWithCategories();
 }

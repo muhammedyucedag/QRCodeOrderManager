@@ -1,7 +1,5 @@
-using QRCodeOrderManager.Domain.Entities;
+namespace QRCodeOrderManager.Application.Repository.Product;
 
-namespace QRCodeOrderManager.Application.Repository;
-
-public interface IProductWriteRepository : IWriteRepository<Product>
+public interface IProductWriteRepository : IWriteRepository<Domain.Entities.Product>
 {
 }

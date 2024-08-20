@@ -4,7 +4,7 @@ using QRCodeOrderManager.Application.Repository;
 using QRCodeOrderManager.Domain.Entities;
 using QRCodeOrderManager.Persistance.Concrete;
 
-namespace SignalR.DataAccessLayer.Repository;
+namespace QRCodeOrderManager.Persistance.Repository;
 
 public class ReadRepository<T> : IReadRepository<T> where T : BaseEntity
 {

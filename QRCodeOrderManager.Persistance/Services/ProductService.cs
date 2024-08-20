@@ -2,7 +2,7 @@
 using QRCodeOrderManager.Application.Abstractions.Services;
 using QRCodeOrderManager.Application.Exceptions.Product;
 using QRCodeOrderManager.Application.Features.Commands.Product.Update;
-using QRCodeOrderManager.Application.Repository;
+using QRCodeOrderManager.Application.Repository.Product;
 using QRCodeOrderManager.Domain.Entities;
 
 namespace QRCodeOrderManager.Persistance.Services;
@@ -51,7 +51,16 @@ public class ProductService : IProductService
         await _productWriteRepository.SaveAsync();
 
         return product;
-    }  
+    }
+
+    public async Task<List<Product>> GetProductsWithCategories()
+    {
+        var product = await _productReadRepository.GetProductsWithCategories();
+        if (product is null)
+            throw new NotFoundProductException();
+
+        return product;
+    }
 
     public async Task DeleteAsync(Guid id)
     {

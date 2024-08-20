@@ -1,12 +1,14 @@
-using QRCodeOrderManager.Application.Repository;
-using QRCodeOrderManager.Domain.Entities;
+using Microsoft.EntityFrameworkCore;
+using QRCodeOrderManager.Application.Repository.Product;
 using QRCodeOrderManager.Persistance.Concrete;
 
-namespace SignalR.DataAccessLayer.Repository;
+namespace QRCodeOrderManager.Persistance.Repository.Product;
 
-public class ProductReadRepository : ReadRepository<Product>, IProductReadRepository
+public class ProductReadRepository(SignalRContext context) : ReadRepository<Domain.Entities.Product>(context), IProductReadRepository
 {
-    public ProductReadRepository(SignalRContext context) : base(context)
+    public async Task<List<Domain.Entities.Product>> GetProductsWithCategories()
     {
+        var values = await context.Products.Include(x => x.Category).ToListAsync();
+        return values;
     }
 }

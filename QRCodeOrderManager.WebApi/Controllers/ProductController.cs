@@ -4,6 +4,7 @@ using QRCodeOrderManager.Application.Features.Commands.Product.Create;
 using QRCodeOrderManager.Application.Features.Commands.Product.Delete;
 using QRCodeOrderManager.Application.Features.Commands.Product.Update;
 using QRCodeOrderManager.Application.Features.Queries.Product.GetAllProduct;
+using QRCodeOrderManager.Application.Features.Queries.Product.GetAllProductWithCategory;
 using QRCodeOrderManager.Application.Features.Queries.Product.GetProductById;
 using QRCodeOrderManager.Infrastructure.Base;
 
@@ -52,6 +53,16 @@ namespace QRCodeOrderManager.WebApi.Controllers
         /// </summary>
         [HttpGet("[action]")]
         public async Task<IActionResult> GetAllProduct([FromQuery] GetAllProductQueryCommand command)
+        {
+            var response = await Mediator.Send(command);
+            return Ok(response);
+        }
+        
+        /// <summary>
+        /// Kategori bazlı ürün bilgilerini getirmek için bu uç kullanılır.
+        /// </summary>
+        [HttpGet("[action]")]
+        public async Task<IActionResult> GetAllProductWithCategory([FromQuery] GetAllProductWithCategoryCommand command)
         {
             var response = await Mediator.Send(command);
             return Ok(response);

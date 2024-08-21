@@ -6,7 +6,7 @@ using QRCodeOrderManager.Application.Exceptions.Category;
 
 namespace QRCodeOrderManager.Application.Features.Queries.Category.GetCategoryById;
 
-public class GetByIdCategoryQueryCommandHandler : IRequestHandler<GetByIdCategoryQueryCommand, GetByIdCategoryDto>
+public class GetByIdCategoryQueryCommandHandler : IRequestHandler<GetByIdCategoryQueryCommand, CategoryDto>
 {
     private readonly ICategoryService _categoryService;
     private readonly IMapper _mapper;
@@ -17,12 +17,12 @@ public class GetByIdCategoryQueryCommandHandler : IRequestHandler<GetByIdCategor
         _mapper = mapper;
     }
 
-    public async Task<GetByIdCategoryDto> Handle(GetByIdCategoryQueryCommand request, CancellationToken cancellationToken)
+    public async Task<CategoryDto> Handle(GetByIdCategoryQueryCommand request, CancellationToken cancellationToken)
     {
         var category = await _categoryService.GetByIdAsync(request.CategoryId);
         if (category is null)
             throw new NotFoundCategoryException();
 
-        return _mapper.Map<GetByIdCategoryDto>(category);
+        return _mapper.Map<CategoryDto>(category);
     }
 }

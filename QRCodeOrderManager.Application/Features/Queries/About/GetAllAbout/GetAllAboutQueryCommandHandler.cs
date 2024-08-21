@@ -6,7 +6,7 @@ using QRCodeOrderManager.Application.Exceptions.About;
 
 namespace QRCodeOrderManager.Application.Features.Queries.About.GetAllAbout;
 
-public class GetAllAboutQueryCommandHandler : IRequestHandler<GetAllAboutQueryCommand, GetAllAboutDto[]>
+public class GetAllAboutQueryCommandHandler : IRequestHandler<GetAllAboutQueryCommand, AboutDto[]>
 {
     private readonly IMapper _mapper;
     private readonly IAboutService _aboutService;
@@ -17,13 +17,13 @@ public class GetAllAboutQueryCommandHandler : IRequestHandler<GetAllAboutQueryCo
         _aboutService = aboutService;
     }
 
-    public async Task<GetAllAboutDto[]> Handle(GetAllAboutQueryCommand request, CancellationToken cancellationToken)
+    public async Task<AboutDto[]> Handle(GetAllAboutQueryCommand request, CancellationToken cancellationToken)
     {
         var abouts = await _aboutService.GetListAllAsync();
         if (abouts is null)
             throw new NotFoundAboutException();
         
-        var aboutsDtos = _mapper.Map<GetAllAboutDto[]>(abouts);
+        var aboutsDtos = _mapper.Map<AboutDto[]>(abouts);
 
         return aboutsDtos;
     }

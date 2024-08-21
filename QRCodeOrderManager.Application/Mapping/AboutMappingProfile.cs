@@ -12,11 +12,7 @@ public class AboutMappingProfile : Profile
     {
         CreateMap<CreateAboutCommand, About>().ReverseMap();
         CreateMap<UpdateAboutCommand, About>().ReverseMap();
-        CreateMap<UpdateAboutCommand, UpdateAboutDto>().ReverseMap();
-        CreateMap<About, DeleteAboutDto>();
-        CreateMap<About, CreateAboutDto>().ReverseMap();
-        CreateMap<About, UpdateAboutDto>().ReverseMap();
-        CreateMap<About, GetByIdAboutDto>().ReverseMap();
-        CreateMap<About, GetAllAboutDto>().ReverseMap();
+        CreateMap<UpdateAboutCommand, AboutDto>().ReverseMap();
+        CreateMap<About, AboutDto>().ReverseMap();
     }
 }

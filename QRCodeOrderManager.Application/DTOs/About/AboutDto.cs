@@ -1,6 +1,8 @@
-﻿namespace QRCodeOrderManager.Application.DTOs.About;
+﻿using QRCodeOrderManager.Application.Features.Commands.Response;
 
-public class GetByIdAboutDto
+namespace QRCodeOrderManager.Application.DTOs.About;
+
+public class AboutDto : BaseResponse
 {
     public Guid Id { get; set; }
     public string ImageUrl { get; set; }

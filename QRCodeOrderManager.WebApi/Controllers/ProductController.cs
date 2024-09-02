@@ -22,7 +22,7 @@ namespace QRCodeOrderManager.WebApi.Controllers
         /// Ürün oluşturmak için bu uç kullanılır.
         /// </summary>
         [HttpPost]
-        public async Task<IActionResult> CreateContact(CreateProductCommand command)
+        public async Task<IActionResult> CreateProduct(CreateProductCommand command)
         {
             var response = await Mediator.Send(command);
             return Ok(response);

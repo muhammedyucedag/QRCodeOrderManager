@@ -7,7 +7,6 @@ namespace SignalRWebUI.Controllers
 {
     public class CategoryController(IHttpClientFactory httpClientFactory) : Controller
     {
-        // GET: CategoryController
         public async Task<IActionResult> Index()
         {
             var client = httpClientFactory.CreateClient();
@@ -95,6 +94,5 @@ namespace SignalRWebUI.Controllers
 
             return View();
         }
-
     }
 }

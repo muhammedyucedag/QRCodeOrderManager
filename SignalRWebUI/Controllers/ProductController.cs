@@ -68,7 +68,6 @@ namespace SignalRWebUI.Controllers
             return View(productDto);
         }
 
-        [HttpDelete]
         public async Task<IActionResult> DeleteProduct(Guid id)
         {
             var client = _httpClientFactory.CreateClient();

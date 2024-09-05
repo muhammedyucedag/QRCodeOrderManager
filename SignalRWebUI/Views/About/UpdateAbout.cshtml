@@ -1,4 +1,4 @@
-﻿@model CategoryDto?
+﻿@model AboutDto
 
 @{
     ViewBag.Title = "title";
@@ -9,26 +9,31 @@
 
 <div class="content">
     <div class="container-fluid">
-        <h4 class="page-title">Kategori İşlemleri</h4>
+        <h4 class="page-title">Hakkımızda İşlemleri</h4>
         <div class="row">
             <div class="col-md-12">
                 <form method="post">
                     <div class="card">
                         <div class="card-header">
-                            <div class="card-title">Kategori Güncelleme İşlemleri</div>
+                            <div class="card-title">Hakkımızda Güncelleme İşlemleri</div>
                         </div>
+                        <input type="hidden" asp-for="Id"/>
                         <div class="card-body">
-                            
-                            <input type="hidden" asp-for="Id"/>
-                            
                             <div class="form-group">
-                                <label for="categoryname">Kategori Adı</label>
-                                <input type="text" class="form-control" asp-for="Name" id="categoryname">
+                                <label for="title">Başlık</label>
+                                <input type="text" class="form-control" asp-for="Title" id="title">
                             </div>
-                            
+                            <div class="form-group">
+                                <label for="imageUrl">Görsel URL</label>
+                                <input type="text" class="form-control" asp-for="ImageUrl" id="imageUrl">
+                            </div>
+                            <div class="form-group">
+                                <label for="description">Açıklama</label>
+                                <textarea rows="5" class="form-control" asp-for="Description" id="description"></textarea>
+                            </div>
                         </div>
                         <div class="card-action">
-                            <button class="btn btn-success">Güncelle</button>
+                            <button class="btn btn-success">Açıklamayı Güncelle</button>
                         </div>
                     </div>
                 </form>
@@ -52,7 +57,7 @@
                 icon: "success",
                 title: "Hakkında Yazısı Eklendi.",
                 showConfirmButton: false,
-                timer: 3000
+                timer: 2000
             });
         } else {
             Swal.fire({
@@ -60,7 +65,7 @@
                 icon: "error",
                 title: "Alanlar Boş Geçilemez!",
                 showConfirmButton: false,
-                timer: 3000
+                timer: 2000
             });
         }
     }

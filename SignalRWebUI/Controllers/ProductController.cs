@@ -7,15 +7,8 @@ using SignalRWebUI.Dtos.ProductDtos;
 
 namespace SignalRWebUI.Controllers
 {
-    public class ProductController : Controller
+    public class ProductController(IHttpClientFactory httpClientFactory) : Controller
     {
-        private readonly IHttpClientFactory _httpClientFactory;
-
-        public ProductController(IHttpClientFactory httpClientFactory)
-        {
-            _httpClientFactory = httpClientFactory;
-        }
-
         public async Task<IActionResult> Index()
         {
             var products = await GetProductListAsync("http://localhost:5035/api/products/GetAllProductWithCategory");
@@ -46,7 +39,7 @@ namespace SignalRWebUI.Controllers
         {
             productDto.Status = true;
 
-            var client = _httpClientFactory.CreateClient();
+            var client = httpClientFactory.CreateClient();
             var jsonData = JsonConvert.SerializeObject(productDto);
 
             var content = new StringContent(jsonData, Encoding.UTF8, "application/json");
@@ -70,7 +63,7 @@ namespace SignalRWebUI.Controllers
 
         public async Task<IActionResult> DeleteProduct(Guid id)
         {
-            var client = _httpClientFactory.CreateClient();
+            var client = httpClientFactory.CreateClient();
             var responseMessage = await client.DeleteAsync($"http://localhost:5035/api/products/{id}");
 
             if (responseMessage.IsSuccessStatusCode)
@@ -93,7 +86,7 @@ namespace SignalRWebUI.Controllers
                     Value = x.Id.ToString()
                 }).ToList();
 
-            var client = _httpClientFactory.CreateClient();
+            var client = httpClientFactory.CreateClient();
             var responseMessage = await client.GetAsync($"http://localhost:5035/api/products/{id}");
 
             if (responseMessage.IsSuccessStatusCode)
@@ -109,7 +102,7 @@ namespace SignalRWebUI.Controllers
         [HttpPost]
         public async Task<IActionResult> UpdateProduct(ProductDto productDto)
         {
-            var client = _httpClientFactory.CreateClient();
+            var client = httpClientFactory.CreateClient();
             var jsonData = JsonConvert.SerializeObject(productDto);
 
             var content = new StringContent(jsonData, Encoding.UTF8, "application/json");
@@ -126,7 +119,7 @@ namespace SignalRWebUI.Controllers
 
         private async Task<List<ProductDto>?> GetProductListAsync(string url)
         {
-            var client = _httpClientFactory.CreateClient();
+            var client = httpClientFactory.CreateClient();
             var responseMessage = await client.GetAsync(url);
 
             if (responseMessage.IsSuccessStatusCode)
@@ -140,7 +133,7 @@ namespace SignalRWebUI.Controllers
 
         private async Task<List<CategoryDto>?> GetCategoryListAsync(string url)
         {
-            var client = _httpClientFactory.CreateClient();
+            var client = httpClientFactory.CreateClient();
             var responseMessage = await client.GetAsync(url);
 
             if (responseMessage.IsSuccessStatusCode)

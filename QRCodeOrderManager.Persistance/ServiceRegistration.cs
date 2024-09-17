@@ -3,8 +3,10 @@ using QRCodeOrderManager.Application.Abstractions.Services;
 using QRCodeOrderManager.Application.Common;
 using QRCodeOrderManager.Application.Repository;
 using QRCodeOrderManager.Application.Repository.Product;
+using QRCodeOrderManager.Application.Repository.Reservation;
 using QRCodeOrderManager.Persistance.Concrete;
 using QRCodeOrderManager.Persistance.Repository.Product;
+using QRCodeOrderManager.Persistance.Repository.Reservation;
 using QRCodeOrderManager.Persistance.Services;
 using SignalR.DataAccessLayer.Repository;
 

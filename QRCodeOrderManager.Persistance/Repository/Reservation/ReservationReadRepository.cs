@@ -1,4 +1,5 @@
 using QRCodeOrderManager.Application.Repository;
+using QRCodeOrderManager.Application.Repository.Reservation;
 using QRCodeOrderManager.Domain.Entities;
 using QRCodeOrderManager.Persistance.Concrete;
 using QRCodeOrderManager.Persistance.Repository;

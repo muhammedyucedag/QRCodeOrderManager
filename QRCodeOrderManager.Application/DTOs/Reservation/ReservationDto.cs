@@ -7,5 +7,5 @@ public class ReservationDto
     public string Phone { get; set; }
     public string Mail { get; set; }
     public int PersonCount { get; set; }
-    public DateTime ReservationDate { get; set; }
+    public DateTimeOffset ReservationDate { get; set; }
 }

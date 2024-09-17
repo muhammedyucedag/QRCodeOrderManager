@@ -1,10 +1,10 @@
-using QRCodeOrderManager.Application.Repository;
-using QRCodeOrderManager.Domain.Entities;
+using QRCodeOrderManager.Application.Repository.Reservation;
 using QRCodeOrderManager.Persistance.Concrete;
+using SignalR.DataAccessLayer.Repository;
 
-namespace SignalR.DataAccessLayer.Repository;
+namespace QRCodeOrderManager.Persistance.Repository.Reservation;
 
-public class ReservationWriteRepository : WriteRepository<Reservation>, IReservationWriteRepository
+public class ReservationWriteRepository : WriteRepository<Domain.Entities.Reservation>, IReservationWriteRepository
 {
     public ReservationWriteRepository(SignalRContext context) : base(context)
     {

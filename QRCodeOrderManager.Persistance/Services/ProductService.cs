@@ -25,8 +25,8 @@ public class ProductService : IProductService
         entity.Id = Guid.NewGuid();
         entity.CreatedDate = DateTime.UtcNow;
 
-        var result = _productWriteRepository.AddAsync(entity);
-        if (result is null)
+        var result = await _productWriteRepository.AddAsync(entity);
+        if (!result)
             throw new CreateProductFailedException();
 
         await _productWriteRepository.SaveAsync();

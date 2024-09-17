@@ -1,7 +1,5 @@
-using QRCodeOrderManager.Domain.Entities;
+namespace QRCodeOrderManager.Application.Repository.Reservation;
 
-namespace QRCodeOrderManager.Application.Repository;
-
-public interface IReservationWriteRepository : IWriteRepository<Reservation>
+public interface IReservationWriteRepository : IWriteRepository<Domain.Entities.Reservation>
 {
 }

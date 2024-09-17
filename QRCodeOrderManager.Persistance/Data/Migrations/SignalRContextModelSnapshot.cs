@@ -48,7 +48,7 @@ namespace QRCodeOrderManager.Persistance.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Abouts");
+                    b.ToTable("Abouts", (string)null);
                 });
 
             modelBuilder.Entity("QRCodeOrderManager.Domain.Entities.Category", b =>
@@ -72,7 +72,7 @@ namespace QRCodeOrderManager.Persistance.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Categories");
+                    b.ToTable("Categories", (string)null);
                 });
 
             modelBuilder.Entity("QRCodeOrderManager.Domain.Entities.Contact", b =>
@@ -105,7 +105,7 @@ namespace QRCodeOrderManager.Persistance.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Contacts");
+                    b.ToTable("Contacts", (string)null);
                 });
 
             modelBuilder.Entity("QRCodeOrderManager.Domain.Entities.Discount", b =>
@@ -138,7 +138,7 @@ namespace QRCodeOrderManager.Persistance.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Discounts");
+                    b.ToTable("Discounts", (string)null);
                 });
 
             modelBuilder.Entity("QRCodeOrderManager.Domain.Entities.Product", b =>
@@ -178,7 +178,7 @@ namespace QRCodeOrderManager.Persistance.Data.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("Products");
+                    b.ToTable("Products", (string)null);
                 });
 
             modelBuilder.Entity("QRCodeOrderManager.Domain.Entities.Reservation", b =>
@@ -213,7 +213,7 @@ namespace QRCodeOrderManager.Persistance.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Reservations");
+                    b.ToTable("Reservations", (string)null);
                 });
 
             modelBuilder.Entity("QRCodeOrderManager.Domain.Entities.SocialMedia", b =>
@@ -242,7 +242,7 @@ namespace QRCodeOrderManager.Persistance.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("SocialMedia");
+                    b.ToTable("SocialMedia", (string)null);
                 });
 
             modelBuilder.Entity("QRCodeOrderManager.Domain.Entities.Sorter", b =>
@@ -267,7 +267,7 @@ namespace QRCodeOrderManager.Persistance.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Sorters");
+                    b.ToTable("Sorters", (string)null);
                 });
 
             modelBuilder.Entity("QRCodeOrderManager.Domain.Entities.Testimonial", b =>
@@ -303,7 +303,7 @@ namespace QRCodeOrderManager.Persistance.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Testimonials");
+                    b.ToTable("Testimonials", (string)null);
                 });
 
             modelBuilder.Entity("QRCodeOrderManager.Domain.Entities.Product", b =>

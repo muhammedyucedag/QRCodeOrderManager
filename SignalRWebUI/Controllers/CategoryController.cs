@@ -11,12 +11,14 @@ namespace SignalRWebUI.Controllers
         {
             var client = httpClientFactory.CreateClient();
             var responseMessage = await client.GetAsync("http://localhost:5035/api/categories/GetAllCategory");
+            
             if (responseMessage.IsSuccessStatusCode)
             {
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();
                 var value = JsonConvert.DeserializeObject<List<CategoryDto>>(jsonData);
                 return View(value);
             }
+            
             return View(new List<CategoryDto>());
         }
         
@@ -35,7 +37,7 @@ namespace SignalRWebUI.Controllers
             var value = JsonConvert.SerializeObject(categoryDto);
             
             StringContent stringContent = new StringContent(value, Encoding.UTF8, "application/json");
-            
+                
             var responseMessage = await client.PostAsync("http://localhost:5035/api/categories", stringContent);
             
             if (responseMessage.IsSuccessStatusCode)

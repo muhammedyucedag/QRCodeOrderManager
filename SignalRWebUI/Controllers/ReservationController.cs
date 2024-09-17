@@ -11,6 +11,7 @@ namespace SignalRWebUI.Controllers
         {
             var client = httpClientFactory.CreateClient();
             var responseMessage = await client.GetAsync("http://localhost:5035/api/reservations/GetAllReservation");
+            
             if (responseMessage.IsSuccessStatusCode)
             {
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();
@@ -30,6 +31,8 @@ namespace SignalRWebUI.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateReservation(ReservationDto reservationDto)
         {
+            reservationDto.ReservationDate = reservationDto.ReservationDate.ToUniversalTime();
+
             var client = httpClientFactory.CreateClient();
             var value = JsonConvert.SerializeObject(reservationDto);
 
@@ -42,7 +45,7 @@ namespace SignalRWebUI.Controllers
                 return RedirectToAction("Index");
             }
 
-            return View();
+            return View(reservationDto);
         }
 
         public async Task<IActionResult> DeleteReservation(Guid id)
@@ -78,6 +81,8 @@ namespace SignalRWebUI.Controllers
         [HttpPost]
         public async Task<IActionResult> UpdateReservation(ReservationDto reservationDto)
         {
+            reservationDto.ReservationDate = reservationDto.ReservationDate.ToUniversalTime();
+            
             var client = httpClientFactory.CreateClient();
             var jsonData = JsonConvert.SerializeObject(reservationDto);
 

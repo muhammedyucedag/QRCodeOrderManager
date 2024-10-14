@@ -1,6 +1,6 @@
 ﻿namespace SignalRWebUI.Dtos.ProductDtos;
 
-public class ProductDto
+public record ProductDto
 {
     public Guid Id { get; set; }
     public Guid CategoryId { get; set; }

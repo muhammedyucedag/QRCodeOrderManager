@@ -1,8 +1,6 @@
-using MediatR;
+﻿namespace SignalRWebUI.Dtos.ContactDtos;
 
-namespace QRCodeOrderManager.Application.Features.Commands.Contact.Update;
-
-public record UpdateContactCommand : IRequest<UpdateContactCommandResponse>
+public record ContactDto
 {
     public Guid Id { get; set; }
     public string Location { get; set; }

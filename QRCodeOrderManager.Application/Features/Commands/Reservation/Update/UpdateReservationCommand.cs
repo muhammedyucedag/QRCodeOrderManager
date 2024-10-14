@@ -2,7 +2,7 @@ using MediatR;
 
 namespace QRCodeOrderManager.Application.Features.Commands.Reservation.Update;
 
-public class UpdateReservationCommand : IRequest<UpdateReservationCommandResponse>
+public record UpdateReservationCommand : IRequest<UpdateReservationCommandResponse>
 {
     public Guid Id { get; set; }
     public string Name { get; set; }

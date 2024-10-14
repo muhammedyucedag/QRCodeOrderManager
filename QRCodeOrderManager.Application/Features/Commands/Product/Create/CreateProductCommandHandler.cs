@@ -7,7 +7,7 @@ using QRCodeOrderManager.Application.Exceptions.Category;
 
 namespace QRCodeOrderManager.Application.Features.Commands.Product.Create;
 
-public class CreateProductCommandHandler(IProductService productService, ISignalRContext context, IMapper mapper) : IRequestHandler<CreateProductCommand, CreateProductCommandResponse>
+public record CreateProductCommandHandler(IProductService productService, ISignalRContext context, IMapper mapper) : IRequestHandler<CreateProductCommand, CreateProductCommandResponse>
 {
     public async Task<CreateProductCommandResponse> Handle(CreateProductCommand request, CancellationToken cancellationToken)
     {

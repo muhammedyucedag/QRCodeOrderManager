@@ -2,7 +2,7 @@
 
 namespace QRCodeOrderManager.Application.Features.Commands.Testimonial.Create;
 
-public class CreateTestimonialCommand : IRequest<CreateTestimonialCommandResponse>
+public record CreateTestimonialCommand : IRequest<CreateTestimonialCommandResponse>
 {
     public string Name { get; set; }
     public string Title { get; set; }

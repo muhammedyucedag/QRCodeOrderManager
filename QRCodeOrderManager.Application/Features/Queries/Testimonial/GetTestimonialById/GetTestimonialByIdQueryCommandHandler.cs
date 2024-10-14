@@ -6,14 +6,14 @@ using QRCodeOrderManager.Application.Exceptions.Testimonial;
 
 namespace QRCodeOrderManager.Application.Features.Queries.Testimonial.GetTestimonialById;
 
-public class GetTestimonialByIdQueryCommandHandler(ITestimonialService service, IMapper mapper) : IRequestHandler<GetTestimonialByIdQueryCommand, TestimonialDto>
+public record GetTestimonialByIdQueryCommandHandler(ITestimonialService TestimonialService, IMapper Mapper) : IRequestHandler<GetTestimonialByIdQueryCommand, TestimonialDto>
 {
     public async Task<TestimonialDto> Handle(GetTestimonialByIdQueryCommand request, CancellationToken cancellationToken)
     {
-        var testimonial = await service.GetByIdAsync(request.TestimonialId);
+        var testimonial = await TestimonialService.GetByIdAsync(request.TestimonialId);
         if (testimonial is null)
             throw new NotFoundTestimonialException();
 
-        return mapper.Map<TestimonialDto>(testimonial);
+        return Mapper.Map<TestimonialDto>(testimonial);
     }
 }

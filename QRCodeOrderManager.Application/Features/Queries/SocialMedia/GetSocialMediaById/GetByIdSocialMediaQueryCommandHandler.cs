@@ -7,14 +7,14 @@ using QRCodeOrderManager.Application.Exceptions.SocialMedia;
 
 namespace QRCodeOrderManager.Application.Features.Queries.SocialMedia.GetSocialMediaById;
 
-public class GetByIdReservationQueryCommandHandler(ISocialMediaService socialMediaService, IMapper mapper) : IRequestHandler<GetByIdSocialMediaQueryCommand, SocialMediaDto>
+public record GetByIdReservationQueryCommandHandler(ISocialMediaService SocialMediaService, IMapper Mapper) : IRequestHandler<GetByIdSocialMediaQueryCommand, SocialMediaDto>
 {
     public async Task<SocialMediaDto> Handle(GetByIdSocialMediaQueryCommand request, CancellationToken cancellationToken)
     {
-        var socialMedia = await socialMediaService.GetByIdAsync(request.SocialMediaId);
+        var socialMedia = await SocialMediaService.GetByIdAsync(request.SocialMediaId);
         if (socialMedia is null)
             throw new NotFoundSocialMediaException();
 
-        return mapper.Map<SocialMediaDto>(socialMedia);
+        return Mapper.Map<SocialMediaDto>(socialMedia);
     }
 }

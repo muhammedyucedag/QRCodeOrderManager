@@ -1,6 +1,6 @@
 namespace SignalRWebUI.Dtos.ReservationDtos;
 
-public class ReservationDto
+public record ReservationDto
 {
     public Guid Id { get; set; }
     public string Name { get; set; }

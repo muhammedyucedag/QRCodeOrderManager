@@ -5,7 +5,7 @@ using QRCodeOrderManager.Application.DTOs.About;
 
 namespace QRCodeOrderManager.Application.Features.Commands.About.Delete;
 
-public class DeleteAboutCommandHandler : IRequestHandler<DeleteAboutCommand, DeleteAboutCommandResponse>
+public record DeleteAboutCommandHandler : IRequestHandler<DeleteAboutCommand, DeleteAboutCommandResponse>
 {
     private readonly IAboutService _aboutService;
 

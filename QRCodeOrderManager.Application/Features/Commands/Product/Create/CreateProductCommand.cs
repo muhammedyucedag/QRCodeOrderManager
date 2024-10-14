@@ -2,7 +2,7 @@
 
 namespace QRCodeOrderManager.Application.Features.Commands.Product.Create;
 
-public class CreateProductCommand : IRequest<CreateProductCommandResponse>
+public record CreateProductCommand : IRequest<CreateProductCommandResponse>
 {
     public Guid CategoryId { get; set; }
     public string Name { get; set; }

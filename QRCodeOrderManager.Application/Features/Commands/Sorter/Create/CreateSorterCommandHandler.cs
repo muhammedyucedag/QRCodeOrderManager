@@ -4,12 +4,12 @@ using QRCodeOrderManager.Application.Abstractions.Services;
 
 namespace QRCodeOrderManager.Application.Features.Commands.Sorter.Create;
 
-public class CreateSorterCommandHandler(ISorterService sorterService, IMapper mapper) : IRequestHandler<CreateSorterCommand, CreateSorterCommandResponse>
+public record CreateSorterCommandHandler(ISorterService SorterService, IMapper Mapper) : IRequestHandler<CreateSorterCommand, CreateSorterCommandResponse>
 {
     public async Task<CreateSorterCommandResponse> Handle(CreateSorterCommand request, CancellationToken cancellationToken)
     {
-        var sorter = mapper.Map<Domain.Entities.Sorter>(request);
-        await sorterService.CreateAsync(sorter);
+        var sorter = Mapper.Map<Domain.Entities.Sorter>(request);
+        await SorterService.CreateAsync(sorter);
         return new();
     }
 }

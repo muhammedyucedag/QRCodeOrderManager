@@ -2,7 +2,7 @@
 
 namespace QRCodeOrderManager.Application.Features.Commands.About.Create;
 
-public class CreateAboutCommand : IRequest<CreateAboutCommandResponse>
+public record CreateAboutCommand : IRequest<CreateAboutCommandResponse>
 {
     public string ImageUrl { get; set; }
     public string Title { get; set; }

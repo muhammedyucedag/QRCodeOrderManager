@@ -2,7 +2,7 @@
 
 namespace QRCodeOrderManager.Application.Features.Commands.Discount.Create;
 
-public class CreateDiscountCommand : IRequest<CreateDiscountCommandResponse>
+public record CreateDiscountCommand : IRequest<CreateDiscountCommandResponse>
 {
     public string Title { get; set; }
     public string Amount { get; set; }

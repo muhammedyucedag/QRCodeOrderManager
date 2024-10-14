@@ -3,7 +3,7 @@ using QRCodeOrderManager.Application.Abstractions.Services;
 
 namespace QRCodeOrderManager.Application.Features.Commands.Discount.Delete;
 
-public class DeleteDiscountCommandHandler : IRequestHandler<DeleteDiscountCommand, DeleteDiscountCommandResponse>
+public record DeleteDiscountCommandHandler : IRequestHandler<DeleteDiscountCommand, DeleteDiscountCommandResponse>
 {
     private readonly IDiscountService _discountService;
     

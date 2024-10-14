@@ -6,15 +6,15 @@ using QRCodeOrderManager.Application.Exceptions.Product;
 
 namespace QRCodeOrderManager.Application.Features.Queries.Product.GetAllProductWithCategory;
 
-public class GetAllProductWithCategoryCommandHandler(IProductService service, IMapper mapper) : IRequestHandler<GetAllProductWithCategoryCommand, ProductDto[]>
+public record GetAllProductWithCategoryCommandHandler(IProductService ProductService, IMapper Mapper) : IRequestHandler<GetAllProductWithCategoryCommand, ProductDto[]>
 {
     public async Task<ProductDto[]> Handle(GetAllProductWithCategoryCommand request, CancellationToken cancellationToken)
     {
-        var productsWithCategory = await service.GetProductsWithCategories();
+        var productsWithCategory = await ProductService.GetProductsWithCategories();
         if (productsWithCategory is null)
             throw new NotFoundProductException();
 
-        var productDtos = mapper.Map<ProductDto[]>(productsWithCategory);
+        var productDtos = Mapper.Map<ProductDto[]>(productsWithCategory);
 
         return productDtos;
     }

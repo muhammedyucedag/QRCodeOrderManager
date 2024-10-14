@@ -2,7 +2,7 @@ using MediatR;
 
 namespace QRCodeOrderManager.Application.Features.Commands.SocialMedia.Update;
 
-public class UpdateSocialMediaCommand : IRequest<UpdateSocialMediaCommandResponse>
+public record UpdateSocialMediaCommand : IRequest<UpdateSocialMediaCommandResponse>
 {
     public Guid Id { get; set; }
     public string Title { get; set; }

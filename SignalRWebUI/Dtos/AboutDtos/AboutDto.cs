@@ -1,6 +1,6 @@
 ﻿namespace SignalRWebUI.Dtos.AboutDtos;
 
-public class AboutDto
+public record AboutDto
 {
     public Guid Id { get; set; }
     public string ImageUrl { get; set; }

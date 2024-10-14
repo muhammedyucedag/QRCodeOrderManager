@@ -3,6 +3,6 @@ using QRCodeOrderManager.Application.DTOs.Product;
 
 namespace QRCodeOrderManager.Application.Features.Queries.Product.GetAllProduct;
 
-public class GetAllProductQueryCommand : IRequest<ProductDto[]>
+public record GetAllProductQueryCommand : IRequest<ProductDto[]>
 {
 }

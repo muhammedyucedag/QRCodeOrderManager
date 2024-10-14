@@ -5,7 +5,7 @@ using QRCodeOrderManager.Application.DTOs.Category;
 
 namespace QRCodeOrderManager.Application.Features.Commands.Category.Create;
 
-public class CreateCategoryCommandHandler(IMapper mapper, ICategoryService categoryService) : IRequestHandler<CreateCategoryCommand, CreateCategoryCommandResponse>
+public record CreateCategoryCommandHandler(IMapper mapper, ICategoryService categoryService) : IRequestHandler<CreateCategoryCommand, CreateCategoryCommandResponse>
 {
     public async Task<CreateCategoryCommandResponse> Handle(CreateCategoryCommand request, CancellationToken cancellationToken)
     {

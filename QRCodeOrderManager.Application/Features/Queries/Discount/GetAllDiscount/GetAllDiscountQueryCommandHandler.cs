@@ -6,24 +6,15 @@ using QRCodeOrderManager.Application.Exceptions.Discount;
 
 namespace QRCodeOrderManager.Application.Features.Queries.Discount.GetAllDiscount;
 
-public class GetAllDiscountQueryCommandHandler : IRequestHandler<GetAllDiscountQueryCommand, DiscountDto[]>
+public record GetAllDiscountQueryCommandHandler(IDiscountService DiscountService, IMapper Mapper) : IRequestHandler<GetAllDiscountQueryCommand, DiscountDto[]>
 {
-    private readonly IDiscountService _discountService;
-    private readonly IMapper _mapper;
-
-    public GetAllDiscountQueryCommandHandler(IDiscountService discountService, IMapper mapper)
-    {
-        _discountService = discountService;
-        _mapper = mapper;
-    }
-
     public async Task<DiscountDto[]> Handle(GetAllDiscountQueryCommand request, CancellationToken cancellationToken)
     {
-        var discounts = await _discountService.GetListAllAsync();
+        var discounts = await DiscountService.GetListAllAsync();
         if (discounts is null)
             throw new NotFoundDiscountException();
 
-        var discountDtos = _mapper.Map<DiscountDto[]>(discounts);
+        var discountDtos = Mapper.Map<DiscountDto[]>(discounts);
 
         return discountDtos;
     }

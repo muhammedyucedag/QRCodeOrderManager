@@ -3,7 +3,7 @@ using QRCodeOrderManager.Application.DTOs.Contact;
 
 namespace QRCodeOrderManager.Application.Features.Queries.Contact.GetContactById;
 
-public class GetByIdContactQueryCommand : IRequest<ContactDto>
+public record GetByIdContactQueryCommand : IRequest<ContactDto>
 {
     public Guid ContactId { get; set; }
 }

@@ -3,7 +3,7 @@ using QRCodeOrderManager.Application.Abstractions.Services;
 
 namespace QRCodeOrderManager.Application.Features.Commands.About.Update;
 
-public class UpdateAboutCommandHandler : IRequestHandler<UpdateAboutCommand, UpdateAboutCommandResponse>
+public record UpdateAboutCommandHandler : IRequestHandler<UpdateAboutCommand, UpdateAboutCommandResponse>
 {
     private readonly IAboutService _aboutService;
 

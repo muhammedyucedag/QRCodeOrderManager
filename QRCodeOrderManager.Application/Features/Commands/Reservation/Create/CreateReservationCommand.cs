@@ -2,7 +2,7 @@
 
 namespace QRCodeOrderManager.Application.Features.Commands.Reservation.Create;
 
-public class CreateReservationCommand : IRequest<CreateReservationCommandResponse>
+public record CreateReservationCommand : IRequest<CreateReservationCommandResponse>
 {
     public string Name { get; set; }
     public string Phone { get; set; }

@@ -4,7 +4,7 @@ using QRCodeOrderManager.Application.Abstractions.Services;
 
 namespace QRCodeOrderManager.Application.Features.Commands.Contact.Create;
 
-public class CreateContactCommandHandler : IRequestHandler<CreateContactCommand, CreateContactCommandResponse>
+public record CreateContactCommandHandler : IRequestHandler<CreateContactCommand, CreateContactCommandResponse>
 {
     private readonly IContactService _contactService;
     private readonly IMapper _mapper;

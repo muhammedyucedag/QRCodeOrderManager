@@ -4,7 +4,7 @@ using QRCodeOrderManager.Application.DTOs.Category;
 
 namespace QRCodeOrderManager.Application.Features.Commands.Category.Delete;
 
-public class DeleteCategoryCommandHandler : IRequestHandler<DeleteCategoryCommand, DeleteCategoryCommandRespone>
+public record DeleteCategoryCommandHandler : IRequestHandler<DeleteCategoryCommand, DeleteCategoryCommandRespone>
 {
     private readonly ICategoryService _categoryService;
 

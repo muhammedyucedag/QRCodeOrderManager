@@ -5,7 +5,7 @@ using QRCodeOrderManager.Application.DTOs.About;
 
 namespace QRCodeOrderManager.Application.Features.Commands.About.Create;
 
-public class CreateAboutCommandHandler : IRequestHandler<CreateAboutCommand, CreateAboutCommandResponse>
+public record CreateAboutCommandHandler : IRequestHandler<CreateAboutCommand, CreateAboutCommandResponse>
 {
     private readonly IMapper _mapper;
     private readonly IAboutService _aboutService;

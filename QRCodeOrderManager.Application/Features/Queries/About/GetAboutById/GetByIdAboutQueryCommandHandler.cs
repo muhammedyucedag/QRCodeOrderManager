@@ -6,24 +6,15 @@ using QRCodeOrderManager.Application.Exceptions.About;
 
 namespace QRCodeOrderManager.Application.Features.Queries.About.GetAboutById;
 
-public class GetByIdAboutQueryCommandHandler : IRequestHandler<GetByIdAboutQueryCommand, AboutDto>
+public record GetByIdAboutQueryCommandHandler(IMapper Mapper, IAboutService AboutService) : IRequestHandler<GetByIdAboutQueryCommand, AboutDto>
 {
-    private readonly IMapper _mapper;
-    private readonly IAboutService _aboutService;
-
-    public GetByIdAboutQueryCommandHandler(IMapper mapper, IAboutService aboutService)
-    {
-        _mapper = mapper;
-        _aboutService = aboutService;
-    }
-
     public async Task<AboutDto> Handle(GetByIdAboutQueryCommand request, CancellationToken cancellationToken)
     {
-        var about = await _aboutService.GetByIdAsync(request.AboutId);
+        var about = await AboutService.GetByIdAsync(request.AboutId);
 
         if (about is null)
             throw new NotFoundAboutException();
 
-        return _mapper.Map<AboutDto>(about);
+        return Mapper.Map<AboutDto>(about);
     }
 }

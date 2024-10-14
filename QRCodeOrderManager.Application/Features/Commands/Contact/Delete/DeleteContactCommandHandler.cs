@@ -3,7 +3,7 @@ using QRCodeOrderManager.Application.Abstractions.Services;
 
 namespace QRCodeOrderManager.Application.Features.Commands.Contact.Delete;
 
-public class DeleteContactCommandHandler : IRequestHandler<DeleteContactCommand, DeleteContactCommandResponse>
+public record DeleteContactCommandHandler : IRequestHandler<DeleteContactCommand, DeleteContactCommandResponse>
 {
     private readonly IContactService _contactService;
     

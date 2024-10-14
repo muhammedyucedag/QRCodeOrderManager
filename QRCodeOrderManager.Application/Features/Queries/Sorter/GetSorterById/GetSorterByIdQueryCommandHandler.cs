@@ -6,14 +6,14 @@ using QRCodeOrderManager.Application.Exceptions.Sorter;
 
 namespace QRCodeOrderManager.Application.Features.Queries.Sorter.GetSorterById;
 
-public class GetSorterByIdQueryCommandHandler(ISorterService sorterService, IMapper mapper) : IRequestHandler<GetSorterByIdQueryCommand, SorterDto>
+public record GetSorterByIdQueryCommandHandler(ISorterService SorterService, IMapper Mapper) : IRequestHandler<GetSorterByIdQueryCommand, SorterDto>
 {
     public async Task<SorterDto> Handle(GetSorterByIdQueryCommand request, CancellationToken cancellationToken)
     {
-        var sorter = await sorterService.GetByIdAsync(request.SorterId);
+        var sorter = await SorterService.GetByIdAsync(request.SorterId);
         if (sorter is null)
             throw new NotFoundSorterException();
 
-        return mapper.Map<SorterDto>(sorter);
+        return Mapper.Map<SorterDto>(sorter);
     }
 }

@@ -4,7 +4,7 @@ using QRCodeOrderManager.Application.Abstractions.Services;
 
 namespace QRCodeOrderManager.Application.Features.Commands.Discount.Create;
 
-public class CreateDiscountCommandHandler : IRequestHandler<CreateDiscountCommand, CreateDiscountCommandResponse>
+public record CreateDiscountCommandHandler : IRequestHandler<CreateDiscountCommand, CreateDiscountCommandResponse>
 {
     private readonly IDiscountService _discountService;
     private readonly IMapper _mapper;
